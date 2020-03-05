@@ -1,4 +1,20 @@
+body {
+  background-color: #f4ff81;
+}
+
 form.signup,
 form.login {
   margin-top: 50px;
+}
+
+#nav-mobile {
+  text-align: right;
+}
+
+/* .nav-wrapper {
+  margin-left: 2em;
+} */
+
+.card-title {
+  font-size: xx-large;
 }
