@@ -1,0 +1,5 @@
+INSERT INTO categories (name, priority) VALUES ('insurance',2), ('auto',2), ('housing',3), ('phone', 2), ('misc', 1), ('nutrition', 3), ('memberships', 1), ('utilities',2), ('childcare', 2), ('education', 1), ('gas', 1), ('medical', 2), ('loans/cc', 1);
+
+
+
+INSERT INTO expenses (name, mandatory, amount, category_id) VALUES ('car insurance',0, 100.00,1), ('auto bill',0, 200.00,2), ('mortgage',1, 800.00,3) ('cell phone',0, 45.00, 4), ('home insurance', 0, 180.00, 1), ('bar tab', 0, 35.00, 5), ('movies', 0, 21.00, 5), ('festival bill', 0, 35.00, 5), ('groceries', 0, 250.00, 6), ('netflix', 0, 12.00, 7), ('hulu', 0, 9.00, 7), ('gym bill', 0, 10.00, 7), ('gas bill', 1, 75.00, 8), ('electric bill', 1, 80.00, 8), ('water bill', 1, 40.00, 8), ('trash bill', 0, 40.00, 8), ('day care bill', 0, 160.00, 9), ('student loan', 0, 100.00, 10), ('gas for car', 0, 150, 11), ('co-pays', 0, 60.00, 12), ('capital one cc', 0, 45.00, 13), ('personal loan', 0, 90.00, 13);
