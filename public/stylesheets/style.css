@@ -21,7 +21,7 @@ form.login {
 
 .top {
   height: 40vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(https://lh3.googleusercontent.com/proxy/1s7fzkJYm48cb3ws-P4iTCpIV6BVGQ6LO5ypZmrG6L_8_-E2LAN3RHM0H0wifvGnE8c3ywRhO5D_HwbmVAKZguQz8Vz6nJKNVTbTiNoGIKA7Fu6XGA4bP-W_5FI5zrcfhAg_ZaZ23wWfY3uDBHERPfo3ZsNdbdn1qCkNV3fqO0Ar);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(https://lh3.googleusercontent.com/proxy/aLAYmtkG58mtNpb94z0iYWENgv7xWLxp3JeBDxjzSO8RaC8QPczQbcKlP8lk0yThZqocNr2pRGOqX_ju0kIWWMh_AeqORUIybWESQyti_sTMR8M2QV6aTLNpWCXjLBqDIqirE2nAvVDIngqSvQKSttnwAj9zkNZXHZPa5xamst3_);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -69,3 +69,6 @@ h2 {
 h3 {
   text-align: center;
 }
+
+.add__description { width: 400px;}
+.add__value { width: 100px;}
