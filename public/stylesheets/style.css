@@ -18,3 +18,54 @@ form.login {
 .card-title {
   font-size: xx-large;
 }
+
+.top {
+  height: 40vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(https://lh3.googleusercontent.com/proxy/1s7fzkJYm48cb3ws-P4iTCpIV6BVGQ6LO5ypZmrG6L_8_-E2LAN3RHM0H0wifvGnE8c3ywRhO5D_HwbmVAKZguQz8Vz6nJKNVTbTiNoGIKA7Fu6XGA4bP-W_5FI5zrcfhAg_ZaZ23wWfY3uDBHERPfo3ZsNdbdn1qCkNV3fqO0Ar);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  opacity: 50%;
+}
+
+.budget {
+  position: absolute;
+  width: 350px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.budget__title {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.budget__value {
+  font-weight: 300;
+  font-size: 46px;
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.container-items {
+  
+  background-color: yellowgreen;
+  height: 500px;
+  
+  
+  
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
