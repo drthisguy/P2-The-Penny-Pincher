@@ -11,30 +11,35 @@
 </head>
 
 <body>
-  <div class="navbar-fixed">  
+  <div class="navbar-fixed">
     <nav>
-        <div class="nav-wrapper green">
+      <div class="nav-wrapper green">
         <a href="main.html" class="brand-logo">The Budget Buddy</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="signup.html">Sign Up</a></li>
-            <li><a href="login.html">Log In</a></li>
-            <!-- <li><a href="collapsible.html">JavaScript</a></li> -->
+          <li><a href="signup.html">Sign Up</a></li>
+          <li><a href="login.html">Log In</a></li>
+          <!-- <li><a href="collapsible.html">JavaScript</a></li> -->
         </ul>
-        </div>
+      </div>
     </nav>
-</div>  
-  <div class="container">
+  </div>
+
+  <div class="container form">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Login Form</h2>
+      <div class="col s12">
+        <h2>Login</h2>
         <form class="login">
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
+            <div class="input-field col s12">
+              <input id="email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="password" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
           </div>
           <button type="submit" class="btn btn-default">Login</button>
         </form>
