@@ -1,5 +1,5 @@
 body {
-  background-color: #f4ff81;
+  background: linear-gradient(to bottom right, #ccff99 0%, #ffffcc 100%);
 }
 
 form.signup,
@@ -15,6 +15,14 @@ form.login {
   margin-left: 2em;
 } */
 
+
 .card-title {
   font-size: xx-large;
 }
+
+.form {
+  background-color: whitesmoke;
+  margin-top: 2em;
+  padding: 2em;
+}
+
