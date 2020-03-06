@@ -12,9 +12,6 @@ CREATE TABLE categories (
 
 );
 
-INSERT INTO categories (name, priority) VALUES ('insurance',2), ('housing',3);
-
-
 
 CREATE TABLE expenses (
     id INT AUTO_INCREMENT,
@@ -26,4 +23,3 @@ CREATE TABLE expenses (
 
 );
 
-INSERT INTO expenses (name, mandatory, amount, category_id) VALUES ('phone',0, 12.50,1);
