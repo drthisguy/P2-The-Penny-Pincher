@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
       mandatory: {
         type: DataTypes.BOOLEAN,
         allowNull: true,
-        defaultValue: "false",
+        defaultValue: false,
       },
       amount: {
         type: DataTypes.DECIMAL(10, 2),
