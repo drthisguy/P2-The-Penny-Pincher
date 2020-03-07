@@ -20,9 +20,64 @@ form.login {
   font-size: xx-large;
 }
 
+
 .form {
   background-color: whitesmoke;
   margin-top: 2em;
   padding: 2em;
 }
 
+.top {
+  height: 40vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(https://lh3.googleusercontent.com/proxy/aLAYmtkG58mtNpb94z0iYWENgv7xWLxp3JeBDxjzSO8RaC8QPczQbcKlP8lk0yThZqocNr2pRGOqX_ju0kIWWMh_AeqORUIybWESQyti_sTMR8M2QV6aTLNpWCXjLBqDIqirE2nAvVDIngqSvQKSttnwAj9zkNZXHZPa5xamst3_);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  opacity: 50%;
+}
+
+.budget {
+  position: absolute;
+  width: 350px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.budget__title {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.budget__value {
+  font-weight: 300;
+  font-size: 46px;
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.container-items {
+  
+  background-color: yellowgreen;
+  height: 500px;
+  
+  
+  
+}
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+
+.add__description { width: 400px;}
+.add__value { width: 100px;}
