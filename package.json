@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "",
+=======
+  "name": "the-penny-pincher",
+>>>>>>> 08ac6cd5d51cdf740478d4c753431f670313d0cd
   "version": "1.0.0",
   "description": "",
   "main": "server.js",

@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="../public/stylesheets/style.css">
+
+<h1 class="title">Penny Pinchers</h1>
+<div class="lists-container">
+
+</div>
+{{#each expenses}}
+{{#unless this.payment }}
+<div>
+    {{this.expense_name}} <button class="pay" data-id="{{ this.id}}">Pay Bill</button>
+</div>
+{{/unless}}
+{{/each}}
+
+<div class="inputContainer">
+    <input type="text" id="newPayment"/>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="../public/js/main.js"></script>

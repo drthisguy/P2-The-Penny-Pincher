@@ -65,9 +65,7 @@ form.login {
   
   background-color: yellowgreen;
   height: 500px;
-  
-  
-  
+    
 }
 
 h2 {
@@ -81,3 +79,15 @@ h3 {
 
 .add__description { width: 400px;}
 .add__value { width: 100px;}
+
+.container-intro{
+  text-align: center;
+  background-color: #fff8e1;
+  margin-top: 1em;
+  padding: 1.25em;
+}
+
+#pig-intro {
+  width: 20em;
+  height: 20em;
+}
