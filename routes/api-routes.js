@@ -36,6 +36,17 @@ module.exports = function(app) {
     res.redirect("/");
   });
 
+  app.get("/api/expenses/:id", function(req, res) {
+    db.Expenses.findAll(
+      {
+        where: {
+          id: req.params.id
+        }
+      }).then((dbResponse) => {
+      res.json(dbResponse);
+    })
+  });
+
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {
     if (!req.user) {

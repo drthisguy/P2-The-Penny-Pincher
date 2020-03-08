@@ -3,5 +3,17 @@ $(document).ready(function() {
   // and updates the HTML on the page
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.email);
+    console.log("data", data.id)
+
+    $.ajax({ 
+      url: `/api/expenses/${data.id}`, 
+      method: "GET" 
+    })
+    .then(function(expenses) {
+    console.log("expenses", expenses)
+  
+          
+      }
+  )
   });
 });
