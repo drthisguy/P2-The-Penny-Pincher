@@ -11,10 +11,10 @@ form.login {
   text-align: right;
 }
 
-/* .nav-wrapper {
-  margin-left: 2em;
-} */
-
+.brand-logo {
+  font-family: 'Sacramento', cursive;
+  padding-left: 1em;
+}
 
 .card-title {
   font-size: xx-large;
@@ -83,20 +83,30 @@ h3 {
 .container-intro{
   position: relative;
   text-align: center;
-  background-color: #fff8e1;
-  margin-top: 1em;
+  background-color: #f8f3e2;
+
 }
 
 #pig-intro {
+  position: relative;
   width: 20em;
   height: 20em;
-  margin-right: 15em;
+  margin-right: 20em;
   /* margin-bottom: -1em; */
 }
 
-.logo-intro {
+#logo-intro {
   position: absolute;
-  top: 30%;
-  left: 50%;
-  
+  top: 50%;
+  left: 10%;
+}
+
+.intro-subtitle {
+  position: absolute;
+  margin-top: 7em;
+  margin-left: 40em;
+  color: black;
+  font-size: x-large;
+  font-family: 'Montserrat', sans-serif;
+  background-color: chartreuse;
 }
