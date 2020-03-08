@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(to bottom right, #ccff99 0%, #ffffcc 100%);
+   background-color: #ffe57f;
 }
 
 form.signup,
@@ -65,9 +65,7 @@ form.login {
   
   background-color: yellowgreen;
   height: 500px;
-  
-  
-  
+    
 }
 
 h2 {
@@ -81,3 +79,24 @@ h3 {
 
 .add__description { width: 400px;}
 .add__value { width: 100px;}
+
+.container-intro{
+  position: relative;
+  text-align: center;
+  background-color: #fff8e1;
+  margin-top: 1em;
+}
+
+#pig-intro {
+  width: 20em;
+  height: 20em;
+  margin-right: 15em;
+  /* margin-bottom: -1em; */
+}
+
+.logo-intro {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  
+}
