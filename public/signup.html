@@ -14,7 +14,7 @@
   <div class="navbar-fixed">  
     <nav>
         <div class="nav-wrapper green">
-        <a href="main.html" class="brand-logo">The Budget Buddy</a>
+        <a href="main.html" class="brand-logo">Penny Pincher</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="signup.html">Sign Up</a></li>
             <li><a href="login.html">Log In</a></li>
@@ -29,21 +29,21 @@
         <h2>Sign Up</h2>
         <form class="signup">
           <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
+            <div class="input-field col s12">
+              <input id="email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
-          </div>
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> <span class="msg"></span>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="password" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
           </div>
           <button type="submit" class="btn btn-default">Sign Up</button>
         </form>
         <br />
-        <p>Or log in <a href="login.html">here</a></p>
+        <p>Already have an account?<a href="login.html"> Log In</a></p>
       </div>
     </div>
   </div>
