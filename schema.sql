@@ -1,6 +1,6 @@
-DROP DATABASE Finances_db;
+DROP DATABASE pennypinch_dev;
 
-CREATE DATABASE Finances_db;
+CREATE DATABASE pennypinch_dev;
 
 USE Finances_db;
 
