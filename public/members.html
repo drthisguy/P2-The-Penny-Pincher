@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
  <head>
-  <title>The Budget Buddy</title>
+  <title>The Penny Pincher</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
@@ -21,7 +22,9 @@
             <!-- <li><a href="collapsible.html">JavaScript</a></li> -->
         </ul>
         </div>
-        
+    </nav>
+        </div>
+        <div class="container hoverable">
         <div class="top">
           <div class="budget">
               <div class="budget__title">
@@ -47,9 +50,38 @@
               </div>
           </div>
       </div>
-      
-      
-      
+        </div>
+
+      <div class="container">
+        <div class="row">
+            <div class="col s12">
+              <div class="card N/A transparent hoverable editor">
+                <div class="card-content black-text">
+                  <span class="card-title">Add New Item</span>
+                  <form class="add">
+                  <div class="row">
+                    <form class="col s12">
+                        <div class="input-field col s6">
+                          <input id="add-name" type="text" class="validate">
+                          <label for="add-name">Item Name:</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="currency" type="text" class="validate">
+                          <label for="currency">Amount:</label>
+                        </div>
+                 </form>
+                </div>
+                <div class="card-action">
+                  <a href="#">This is a link</a>
+                  <a href="#">This is a link</a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+        </div>
+    <!-- </div>
+      <div class="container">
       <div class="bottom">
           <div class="add">
               <div class="add__container">
@@ -62,13 +94,46 @@
                   <button class="add__btn"><i class="ion-ios-checkmark-outline"></i></button>
               </div>
           </div>
-          
-          <div class="container clearfix">
-              <div class="income">
-                  <h2 class="icome__title">Income</h2>
-                  
-                  <div class="income__list">
-                     
+      </div>
+    </div> -->
+
+        <div class="container table">
+          <table class="striped responsive-table">
+            <thead>
+              <tr>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Catagory</th>
+                  <th>Proiority</th>
+                  <th>Amount</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              <tr>
+                <td>Alvin</td>
+                <td>some date</td>
+                <td>Eclair</td>
+                <td>High</td>
+                <td>$0.87</td>
+              </tr>
+              <tr>
+                <td>Alan</td>
+                <td>some date</td>
+                <td>Jellybean</td>
+                <td>Medium</td>
+                <td>$3.76</td>
+              </tr>
+              <tr>
+                <td>Jonathan</td>
+                <td>some date</td>
+                <td>Lollipop</td>
+                <td>Low</td>
+                <td>$7.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
                       <!--
                       <div class="item clearfix" id="income-0">
                           <div class="item__description">Salary</div>
@@ -90,10 +155,7 @@
                           </div>
                       </div>
                       -->
-                      
-                  </div>
-              </div>
-              
+                  
               
               
              
@@ -122,10 +184,8 @@
                       </div>
                       -->
                       
-             
-      
-      <script src="js/main.js"></script>
   </body>
+  <script src="js/members.js"></script>
 </html>
                       
              

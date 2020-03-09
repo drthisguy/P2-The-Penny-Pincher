@@ -6,18 +6,26 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: true,
         defaultValue: "Miscellaneous",
       },
-      catagory_id: {
+      user_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: "Catagories",
+            model: "Users",
             key: "id"
         }
       },
-      mandatory: {
-        type: DataTypes.BOOLEAN,
-        allowNull: true,
-        defaultValue: 0,
+      category_id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: "Categories",
+            key: "id"
+        }
+      },
+      priority: {
+        type: DataTypes.ENUM,
+        values: ["Low", "Medium", "High"],
+        defaultValue: "Medium",
       },
       amount: {
         type: DataTypes.DECIMAL(10, 2),
