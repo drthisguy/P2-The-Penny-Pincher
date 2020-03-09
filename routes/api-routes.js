@@ -37,12 +37,14 @@ module.exports = function(app) {
   });
 
   app.get("/api/expenses/:id", function(req, res) {
-    db.Expenses.findAll(
+  console.log(db)
+    
+    db.Expense.findAll(
       {
         where: {
-          id: req.params.id
+          user_id: req.params.id
         }
-      }).then((dbResponse) => {
+      }).then( dbResponse => {
       res.json(dbResponse);
     })
   });

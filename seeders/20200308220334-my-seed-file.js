@@ -1,11 +1,17 @@
+/* Seed with sequelize cli installed..  
+ Enter: $ sequelize db:seed:all*/
+
+ const bcrypt = require("bcryptjs");
+
 'use strict';
 
 module.exports = {
   //Users
   up: (queryInterface, Sequelize) => {
+    const password =  bcrypt.hashSync("example", bcrypt.genSaltSync(10), null);
     return queryInterface.bulkInsert('Users', [{
       email : 'example@example.com',
-      password : 'example',
+      password : password,
       createdAt : new Date(),
       updatedAt : new Date()
     }], {}),
