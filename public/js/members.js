@@ -20,7 +20,7 @@ $(document).ready(function() {
   )
   });
 
-//All of this code, formats the "Amount" amount for currency.  
+//The rest of this code, formats the "Amount" value for currency.  
 $("#currency").on({
   keyup: function() {
     formatCurrency($(this));
@@ -32,23 +32,23 @@ $("#currency").on({
 
 //format number with comas. 
 function formatNumber(number) {
-return number.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+return number.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
 //Adds $ to value, validates decimal places
-function formatCurrency(currency, blured) {
+function formatCurrency(currency, ...args) {
 
 let amount = currency.val();
 
-if (amount === "") { return; }
-
-
+if (amount === "") { 
+  return;
+ }
 const startLength = amount.length;
 
 //get cursor position 
 let cursorPosition = currency.prop("selectionStart");
   
-//check for decimal
+//if there's a decimal
 if (amount.indexOf(".") >= 0) {
 
   
@@ -58,16 +58,9 @@ if (amount.indexOf(".") >= 0) {
   let wholeNum = amount.substring(0, decimalLocation);
   let decimal = amount.substring(decimalLocation);
 
-  // add commas to left side of number
+  //format both sides
   wholeNum = formatNumber(wholeNum);
-  // format right side
   decimal = formatNumber(decimal);
-  
-  // ensure the 2 numbers after decimal
-  if (blured === "blured") {
-    `${decimal}.00`;
-  }
-  
   // Limit decimal digits to 2
   decimal = decimal.substring(0, 2);
 
@@ -77,14 +70,14 @@ if (amount.indexOf(".") >= 0) {
 } else {
   amount = formatNumber(amount);
   amount = `$${amount}`;
-  
-  if (blured === "blured") {
-    amount = `${amount}.00`;
-  }
+
+  // ensure decimal + 2 zeros after whole number
+  amount = arguments.length > 1 ? `${amount}.00` : amount;
 }
 
 // return string to field
 currency.val(amount);
+console.log("formatCurrency -> currency", currency)
 
 // restore cursor
 const finalLength = amount.length;
