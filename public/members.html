@@ -4,8 +4,8 @@
   <title>The Penny Pincher</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
@@ -50,8 +50,37 @@
               </div>
           </div>
       </div>
-      
-    </div>
+        </div>
+
+      <div class="container">
+        <div class="row">
+            <div class="col s12">
+              <div class="card N/A transparent hoverable editor">
+                <div class="card-content black-text">
+                  <span class="card-title">Add New Item</span>
+                  <form class="add">
+                  <div class="row">
+                    <form class="col s12">
+                        <div class="input-field col s6">
+                          <input id="add-name" type="text" class="validate">
+                          <label for="add-name">Item Name:</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="currency" type="text" class="validate">
+                          <label for="currency">Amount:</label>
+                        </div>
+                 </form>
+                </div>
+                <div class="card-action">
+                  <a href="#">This is a link</a>
+                  <a href="#">This is a link</a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+        </div>
+    <!-- </div>
       <div class="container">
       <div class="bottom">
           <div class="add">
@@ -66,9 +95,9 @@
               </div>
           </div>
       </div>
-    </div>
+    </div> -->
 
-        <div class="container">
+        <div class="container table">
           <table class="striped responsive-table">
             <thead>
               <tr>

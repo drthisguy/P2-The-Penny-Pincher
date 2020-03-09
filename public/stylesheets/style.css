@@ -35,7 +35,11 @@ form.login {
   position: relative;
   opacity: 50%;
 }
-
+/* 
+.table {
+  margin: 0;
+  width: 100%;
+} */
 .budget {
   position: absolute;
   width: 350px;
