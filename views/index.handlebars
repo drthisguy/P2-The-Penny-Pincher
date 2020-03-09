@@ -1,0 +1,87 @@
+      <div class="container">
+        <div class="row">
+            <div class="col s12">
+              <div class="card N/A transparent hoverable editor">
+                <div class="card-content black-text">
+                  <span class="card-title">Add New Item</span>
+                  <form class="add">
+                  <div class="row">
+                    <form class="col s12">
+                        <div class="input-field col s6">
+                          <input id="add-name" type="text" class="validate">
+                          <label for="add-name">Name:</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="currency" type="text" class="validate">
+                          <label for="currency">Amount:</label>
+                        </div>
+                        <!-- Dropdown Trigger -->
+                        <a class='dropdown-trigger btn' href='#' data-target='categories'>Categories</a>
+
+                        <!-- Dropdown Structure -->
+                        <ul id='categories' class='dropdown-content'>
+                                                       
+                            {{#each categories }}
+                            
+                                <li><a href="#!">{{category}}</a></li>
+                                <li class="divider" tabindex="-1"></li>
+                            
+                            {{/each}}
+
+                        </ul>
+
+                 </form>
+                </div>
+                <div class="card-action">
+                  <a href="#">This is a link</a>
+                  <a href="#">This is a link</a>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+        </div>
+
+        <div class="container table">
+          <table class="striped responsive-table">
+            <thead>
+              <tr>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Catagory</th>
+                  <th>Proiority</th>
+                  <th>Amount</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+              <tr>
+                <td>Alvin</td>
+                <td>some date</td>
+                <td>Eclair</td>
+                <td>High</td>
+                <td>$0.87</td>
+              </tr>
+              <tr>
+                <td>Alan</td>
+                <td>some date</td>
+                <td>Jellybean</td>
+                <td>Medium</td>
+                <td>$3.76</td>
+              </tr>
+              <tr>
+                <td>Jonathan</td>
+                <td>some date</td>
+                <td>Lollipop</td>
+                <td>Low</td>
+                <td>$7.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+                      
+  
+                      
+             
+      
+    

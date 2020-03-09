@@ -1,5 +1,5 @@
 /* Seed with sequelize cli installed..  
- Enter: $ sequelize db:seed:all*/
+ Enter: $ npx sequelize db:seed:all*/
 
  const bcrypt = require("bcryptjs");
 

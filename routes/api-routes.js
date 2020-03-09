@@ -36,8 +36,19 @@ module.exports = function(app) {
     res.redirect("/");
   });
 
+  app.get("/api/categories", function(req, res) {
+    
+    db.Category.findAll( {} ).then( dbResponse => {
+      const handler = {
+        categories: dbResponse
+      };
+      console.log("handler", handler)
+      
+      res.json(handler);
+    })
+  });
+
   app.get("/api/expenses/:id", function(req, res) {
-  console.log(db)
     
     db.Expense.findAll(
       {
