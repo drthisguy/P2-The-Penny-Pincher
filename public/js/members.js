@@ -38,7 +38,7 @@ $(document).ready(function() {
   priorInput.blur();
   priorInput.val('Medium');
 
-  //listen for new catagory
+  //listen for new priority
   $('li>a.pri').on('click',  function() {
    
   priorInput.val($(this).text());       
