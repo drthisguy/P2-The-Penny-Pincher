@@ -21,9 +21,11 @@
                         <!-- Dropdown Structure -->
                         <ul id='categories' class='dropdown-content'>
                                                        
-                            {{#each categories }}
+                            {{#each categories}}
                             
-                                <li><a href="#!">{{category}}</a></li>
+                                <li>
+                                  <a href="#!">{{this.dataValues.category}}</a>
+                               </li>
                                 <li class="divider" tabindex="-1"></li>
                             
                             {{/each}}
