@@ -5,7 +5,7 @@
                 <div class="card-content black-text">
                   <span class="card-title">Add New Item</span>
                   <form class="add">
-                  <div class="row">
+                 
                     <form class="col s12">
                         <div class="input-field col s6">
                           <input id="add-name" type="text" class="validate">
@@ -38,7 +38,7 @@
                   </div>
             
                   
-                </div>
+                
 
                   <div class="row">
 
@@ -90,7 +90,7 @@
         </div>
 
         <div class="container table">
-          <table class="striped responsive-table">
+          <table id="table" class="striped responsive-table hover row-border">
             <thead>
               <tr>
                   <th>Name</th>
@@ -118,6 +118,16 @@
                  {{/each}}
               
             </tbody>
+            <tfoot>
+              <tr>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Priority</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Change/Remove</th>
+              </tr>
+            </tfoot>
           </table>
         </div>
                       
