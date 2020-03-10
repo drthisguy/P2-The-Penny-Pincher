@@ -35,7 +35,7 @@ module.exports = {
     updatedAt : new Date(),
   },
   {
-    category : 'Telecommunications',
+    category : 'Telecommunication',
     createdAt : new Date(),
     updatedAt : new Date(),
   },
