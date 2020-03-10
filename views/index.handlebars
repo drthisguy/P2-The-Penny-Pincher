@@ -98,31 +98,25 @@
                   <th>Catagory</th>
                   <th>Proiority</th>
                   <th>Amount</th>
+                  <th>Change/Remove</th>
               </tr>
             </thead>
     
             <tbody>
-              <tr>
-                <td>Alvin</td>
-                <td>some date</td>
-                <td>Eclair</td>
-                <td>High</td>
-                <td>$0.87</td>
-              </tr>
-              <tr>
-                <td>Alan</td>
-                <td>some date</td>
-                <td>Jellybean</td>
-                <td>Medium</td>
-                <td>$3.76</td>
-              </tr>
-              <tr>
-                <td>Jonathan</td>
-                <td>some date</td>
-                <td>Lollipop</td>
-                <td>Low</td>
-                <td>$7.00</td>
-              </tr>
+              
+                 {{#each expenses}}
+                   <tr>
+                  
+                      <td>{{this.dataValues.createdAt}}</td>
+                      <td>{{this.dataValues.name}}</td>
+                      <td>{{this.dataValues.category_id}}</td>
+                      <td>{{this.dataValues.priority}}</td>
+                      <td>{{this.dataValues.amount}}</td> 
+                      <td>icon</td>
+                  
+                  </tr>
+                 {{/each}}
+              
             </tbody>
           </table>
         </div>

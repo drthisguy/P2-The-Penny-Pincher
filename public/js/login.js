@@ -17,19 +17,19 @@ $(document).ready(function() {
     }
 
     // If we have an email and password we run the loginUser function and clear the form
-    loginUser(userData.email, userData.password);
+    loginUser(userData);
     emailInput.val("");
     passwordInput.val("");
   });
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
-  function loginUser(email, password) {
+  function loginUser(user) {
     $.post("/api/login", {
-      email: email,
-      password: password
+      email: user.email,
+      password: user.password
     })
       .then(function() {
-        window.location.replace("/members");
+        window.location.replace(`/members/${user.id}`);
         // If there's an error, log the error
       })
       .catch(function(err) {
