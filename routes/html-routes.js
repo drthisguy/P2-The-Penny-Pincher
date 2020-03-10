@@ -30,18 +30,12 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
     
-    db.Category.findAll( {} ).then( dbResponse => {
-      // const categoryColumn = dbResponse.map( x => x.Category.category);
-      console.log(dbResponse.category);
-      const handler = {
-        categories: dbResponse[0]
-      };
-      // console.log(dbResponse);
-      res.render("index", handler);
+    db.Category.findAll( {} ).then( data => {
+        
+      res.render("index", {categories: data});
     })
     
-    
-    // res.sendFile(path.join(__dirname, "../public/members.html"));
+   
   });
 
 };

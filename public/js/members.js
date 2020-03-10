@@ -20,6 +20,30 @@ $(document).ready(function() {
   )
   });
 
+  //set default category
+  let catInput = $("#category-field");
+  catInput.siblings("label").toggleClass("active", true );
+  catInput.blur();
+  catInput.val('Miscellaneous');
+
+  //listen for new catagory
+  $('li>a.cat').on('click',  function() {
+   
+  catInput.val($(this).text());       
+});
+
+  //set default priority
+  let priorInput = $("#priority-field");
+  priorInput.siblings("label").toggleClass("active", true );
+  priorInput.blur();
+  priorInput.val('Medium');
+
+  //listen for new priority
+  $('li>a.pri').on('click',  function() {
+   
+  priorInput.val($(this).text());       
+});
+
 //The rest of this code, formats the "Amount" value for currency.  
 $("#currency").on({
   keyup: function() {
