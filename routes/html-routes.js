@@ -32,15 +32,10 @@ module.exports = function(app) {
     
     db.Category.findAll( {} ).then( data => {
         
-      // const categoryColumn = dbResponse.map( x => x.category);
-      
-      console.log(data[0].dataValues.category);
-      // res.json({categories: data})
       res.render("index", {categories: data});
     })
     
-    
-    // res.sendFile(path.join(__dirname, "../public/members.html"));
+   
   });
 
 };

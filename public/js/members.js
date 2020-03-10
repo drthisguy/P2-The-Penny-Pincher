@@ -20,6 +20,18 @@ $(document).ready(function() {
   )
   });
 
+  //set default category
+  let catInput = $("#category-field");
+  catInput.siblings("label").toggleClass("active", true );
+  catInput.val('Miscellaneous');
+  catInput.blur();
+
+  //listen for new catagory
+  $('li>a').on('click',  function() {
+   
+  catInput.val($(this).text());       
+});
+
 //The rest of this code, formats the "Amount" value for currency.  
 $("#currency").on({
   keyup: function() {
