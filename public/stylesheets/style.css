@@ -12,11 +12,14 @@ form.login {
   text-align: right;
 }
 
-/* .nav-wrapper {
-  margin-left: 2em;
-} */
+<<<<<<< HEAD
+.brand-logo {
+  font-family: 'Sacramento', cursive;
+  padding-left: 1em;
+}
 
-
+=======
+>>>>>>> 654f6dd82be7e68e9942fef55cfeefa67d08818e
 .card-title {
   font-size: xx-large;
 }
@@ -114,24 +117,39 @@ h3 {
 .container-intro{
   position: relative;
   text-align: center;
-  background-color: #fff8e1;
-  margin-top: 1em;
+  background-color: #f8f3e2;
+
 }
 
 #pig-intro {
-  width: 20em;
-  height: 20em;
-  margin-right: 15em;
+  position: relative;
+  width: 20%;
+  height: 20%;
+  margin-right: 20%;
   /* margin-bottom: -1em; */
 }
 
-.logo-intro {
+#logo-intro {
   position: absolute;
-  top: 30%;
-  left: 50%;
-  
+  top: 67%;
+  left: 15%;
 }
 
-.container {
-  margin-top: 35pt;
+.intro-subtitle {
+  position: absolute;
+  margin-top: 7%;
+  margin-left: 60%;
+  color: black;
+  font-size: x-large;
+  font-family: 'Roboto Slab', serif;
+}
+
+#form-header {
+  font-family: 'Montserrat', sans-serif;
+}
+
+#submit-button {
+  background-color: #4caf50;
+  font-family: 'Roboto Slab', serif;
+  font-size: larger;
 }

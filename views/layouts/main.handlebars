@@ -8,9 +8,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
-    <body>
 
 <body>
   <div class="navbar-fixed">  
@@ -19,12 +20,12 @@
         <a href="logout" class="brand-logo">Penny Pincher</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="logout">Log Out</a></li>
-            <!-- <li><a href="login.html">Log In</a></li> -->
-            <!-- <li><a href="collapsible.html">JavaScript</a></li> -->
         </ul>
-        </div>
+     </div>
     </nav>
+
         </div>
+
 
            <div class="wrapper">
           <div class= "pie-container">
@@ -38,13 +39,50 @@
         </div>
       
 
+
         <div class="container hoverable">
         <div class="top">
-          <div class="budget">
+         
               <div class="budget__title">
-                  Available Budget in <span class="budget__title--month">%Month%</span>:
+                  Monthly Budget for <span class="date">Month</span>:
               </div>
-              
+
+                <div class="row">
+                    <div class="col s6">
+
+                    
+              <div class="container table">
+          <table class="striped responsive-table">
+            <thead><th></th></thead>
+            <tbody>
+              <tr>
+                  <td>Total Income:</td>
+                  <td><div class="expense"></div></td>
+              </tr>
+              <t>
+                  <td>Total Expenses:</td>
+                  <td><div class="income"></div></td>
+              </tr>
+              <t>
+                  <td>Balance:</td>
+                  <td><div class="balance"></div></td>
+              </tr>
+              <t>
+                  <td>Discretionary Spending:</td>
+                  <td><div class="dis-amount"></div></td>
+                  <td><div class="dis-percent"></div></td>
+              </tr>
+            </tbody>
+            </table>
+            </div>
+            </div>
+            <div class="col s6"></div>
+        </div>
+
+    </div>
+</div>
+            
+{{!--               
               <div class="budget__value">+ 2,345.64</div>
               
               <div class="budget__income clearfix">
@@ -64,7 +102,7 @@
               </div>
           </div>
       </div>
-        </div>
+        </div> --}}
 
     {{{ body }}}
 
