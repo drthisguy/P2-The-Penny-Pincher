@@ -13,17 +13,6 @@ $(document).ready(function() {
   // and updates the HTML on the page
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.email);
-    console.log("data", data.id)
-
-    //get list of expenses. 
-    $.ajax({ 
-      url: "/api/expenses", 
-      method: "GET" 
-    })
-    .then(function(expenses) {
-    console.log("expenses", expenses) 
-      }
-  )
   });
 
   //set default category
@@ -114,46 +103,24 @@ const finalLength = amount.length;
 cursorPosition = finalLength - startLength + cursorPosition;
 currency[0].setSelectionRange(cursorPosition, cursorPosition);
 }
-});
 
-let ctx = document.getElementById('myChart').getContext('2d');
-let labels = ['i', 'am', 'awesome'];
-let colorHex = ['blue', 'green', 'red']
 
-let myChart = new Chart(ctx, {
-  type: 'pie',
-  data: {
-    datasets: [{
-      data: [30,10,40,20],
-      backgroundColor: colorHex
-    }],
-    labels: labels
-  },
-  options: {
-    responsive: true,
-    legend: {
-      position: 'bottom'
-    },
-    plugins: {
-      datalabels: {
-        color: '#fff',
-        anchor: 'end',
-        align: 'start',
-        offset: -10,
-        borderWidth: 2,
-        borderColor: '#fff',
-        borderRadious: 25,
-        backgroundColor: (context) => {
-          return context.dataset.backgroundColor;
-        },
-        font: {
-          weight: 'bold',
-          size: '10'
-        },
-        formatter: (value) => {
-          return value + '%';
-        }
-      }
-    }
+
+//Item Controller
+var ItemCtrl = (function(){ 
+  
+  return {
+    
+    //get all expenses/income. 
+    getItems: () => $.get("/api/expenses").then( data =>  data)
+    ,
   }
-})
+})();
+
+(async function editor() {
+  
+  let budget = await ItemCtrl.getItems()
+  console.log("budget", budget)
+})();
+
+});

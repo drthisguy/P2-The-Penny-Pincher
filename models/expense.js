@@ -1,3 +1,7 @@
+// const category = require("./category")
+// console.log("Category", category)
+
+
 module.exports = function(sequelize, DataTypes) {
     
     const Expense = sequelize.define("Expense", {
@@ -14,13 +18,10 @@ module.exports = function(sequelize, DataTypes) {
             key: "id"
         }
       },
-      category_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: {
-            model: "Categories",
-            key: "id"
-        }
+      category: {
+        type: DataTypes.STRING,
+        allowNull: true,
+        
       },
       priority: {
         type: DataTypes.ENUM,

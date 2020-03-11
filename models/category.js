@@ -3,7 +3,7 @@ module.exports = function (sequelize, DataTypes) {
         category: {
             type: DataTypes.STRING,
             allowNull: true,
-            defaultValue: 'Miscellaneous'
+            unique: true
         },
     });
     return Category;

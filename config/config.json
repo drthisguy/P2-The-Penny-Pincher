@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "yourRootPassword",
+    "password": "YourRootPassword",
     "database": "pennypinch_dev",
     "host": "127.0.0.1",
     "dialect": "mysql"
@@ -16,7 +16,7 @@
   "production": {
     "username": "root",
     "password": "yourRootPassword",
-    "database": "pennypinch_production",
+    "database": "pennypinch_prod",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }

@@ -28,9 +28,10 @@ Object.keys(db).forEach(function(modelName) {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
+  console.log(db);
 });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-
+db.Category.belongsTo(db.Expense, { targetKey: "category", foreignKey: "category"});
 module.exports = db;

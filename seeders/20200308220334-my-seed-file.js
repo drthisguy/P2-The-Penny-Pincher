@@ -95,7 +95,7 @@ module.exports = {
       {
       name : 'Mortgage Pymnt',
       user_id: 1,
-      category_id: 1,
+      category: "Housing",
       priority: 'High',
       amount: 840.00,
       createdAt : new Date(),
@@ -104,7 +104,7 @@ module.exports = {
       {
       name : 'Car Insurance',
       user_id: 1,
-      category_id: 2,
+      category: "Insurance",
       priority: 'High',
       amount: 65.00,
       createdAt : new Date(),
@@ -113,7 +113,7 @@ module.exports = {
       {
       name : 'Car Pymnt',
       user_id: 1,
-      category_id: 2,
+      category: "Transportation",
       priority: 'High',
       amount: 65.00,
       createdAt : new Date(),
@@ -122,7 +122,7 @@ module.exports = {
       {
       name : 'Gas',
       user_id: 1,
-      category_id: 3,
+      category: "Transportation",
       priority: 'High',
       amount: 33.24,
       createdAt : new Date(),
@@ -131,7 +131,7 @@ module.exports = {
       {
       name : 'Cell Phone',
       user_id: 1,
-      category_id: 4,
+      category: "Telecommunications",
       priority: 'Medium',
       amount: 124.53,
       createdAt : new Date(),
@@ -140,7 +140,7 @@ module.exports = {
       {
       name : 'Acme',
       user_id: 1,
-      category_id: 5,
+      category: "Groceries",
       priority: 'Medium',
       amount: 162.58,
       createdAt : new Date(),
@@ -149,7 +149,7 @@ module.exports = {
       {
       name : 'Peco',
       user_id: 1,
-      category_id: 6,
+      category: "Utility",
       priority: 'High',
       amount: 89.17,
       createdAt : new Date(),
@@ -158,7 +158,7 @@ module.exports = {
       {
       name : 'Child Support',
       user_id: 1,
-      category_id: 7,
+      category: "Child Care",
       priority: 'High',
       amount: 300.00,
       createdAt : new Date(),
@@ -167,7 +167,7 @@ module.exports = {
       {
       name : 'Penn LPS Bootcamp',
       user_id: 1,
-      category_id: 8,
+      category: "Education",
       priority: 'High',
       amount: 1400.29,
       createdAt : new Date(),
@@ -176,7 +176,7 @@ module.exports = {
       {
       name : 'Doctor Evil',
       user_id: 1,
-      category_id: 9,
+      category: "Medical",
       priority: 'Low',
       amount: 134.75,
       createdAt : new Date(),
@@ -185,7 +185,7 @@ module.exports = {
       {
       name : 'Credit Card Pymnt',
       user_id: 1,
-      category_id: 9,
+      category: "Debt",
       priority: 'Medium',
       amount: 225.00,
       createdAt : new Date(),
@@ -194,7 +194,7 @@ module.exports = {
       {
       name : 'Home Depo',
       user_id: 1,
-      category_id: 10,
+      category: "Maintenance",
       priority: 'High',
       amount: 36.91,
       createdAt : new Date(),
@@ -203,7 +203,7 @@ module.exports = {
       {
       name : 'Khols',
       user_id: 1,
-      category_id: 10,
+      category: "Clothing",
       priority: 'Low',
       amount: 82.81,
       createdAt : new Date(),
@@ -212,7 +212,7 @@ module.exports = {
       {
       name : 'Deck of Cards',
       user_id: 1,
-      category_id: 10,
+      category: "Miscellaneous",
       priority: 'Low',
       amount: 2.49,
       createdAt : new Date(),
