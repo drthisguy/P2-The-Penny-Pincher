@@ -89,24 +89,33 @@ h3 {
 
 #pig-intro {
   position: relative;
-  width: 20em;
-  height: 20em;
-  margin-right: 20em;
+  width: 20%;
+  height: 20%;
+  margin-right: 20%;
   /* margin-bottom: -1em; */
 }
 
 #logo-intro {
   position: absolute;
-  top: 50%;
-  left: 10%;
+  top: 67%;
+  left: 15%;
 }
 
 .intro-subtitle {
   position: absolute;
-  margin-top: 7em;
-  margin-left: 40em;
+  margin-top: 7%;
+  margin-left: 60%;
   color: black;
   font-size: x-large;
+  font-family: 'Roboto Slab', serif;
+}
+
+#form-header {
   font-family: 'Montserrat', sans-serif;
-  background-color: chartreuse;
+}
+
+#submit-button {
+  background-color: #4caf50;
+  font-family: 'Roboto Slab', serif;
+  font-size: larger;
 }
