@@ -1,6 +1,14 @@
 $(document).ready(function() {
 
+
+  //init datatables
+  $("#table").DataTable({
+    responsive: true
+  });
+
+  //init materialize 
   M.AutoInit();
+
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(function(data) {
@@ -9,13 +17,11 @@ $(document).ready(function() {
 
     //get list of expenses. 
     $.ajax({ 
-      url: `/api/expenses/${data.id}`, 
+      url: "/api/expenses", 
       method: "GET" 
     })
     .then(function(expenses) {
-    console.log("expenses", expenses)
-  
-          
+    console.log("expenses", expenses) 
       }
   )
   });

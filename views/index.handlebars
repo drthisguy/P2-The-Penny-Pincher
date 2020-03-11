@@ -5,7 +5,7 @@
                 <div class="card-content black-text">
                   <span class="card-title">Add New Item</span>
                   <form class="add">
-                  <div class="row">
+                 
                     <form class="col s12">
                         <div class="input-field col s6">
                           <input id="add-name" type="text" class="validate">
@@ -38,7 +38,7 @@
                   </div>
             
                   
-                </div>
+                
 
                   <div class="row">
 
@@ -90,40 +90,44 @@
         </div>
 
         <div class="container table">
-          <table class="striped responsive-table">
+          <table id="table" class="striped responsive-table hover row-border">
             <thead>
               <tr>
-                  <th>Date</th>
                   <th>Name</th>
-                  <th>Catagory</th>
-                  <th>Proiority</th>
+                  <th>Category</th>
+                  <th>Priority</th>
+                  <th>Date</th>
                   <th>Amount</th>
+                  <th>Change/Remove</th>
               </tr>
             </thead>
     
             <tbody>
-              <tr>
-                <td>Alvin</td>
-                <td>some date</td>
-                <td>Eclair</td>
-                <td>High</td>
-                <td>$0.87</td>
-              </tr>
-              <tr>
-                <td>Alan</td>
-                <td>some date</td>
-                <td>Jellybean</td>
-                <td>Medium</td>
-                <td>$3.76</td>
-              </tr>
-              <tr>
-                <td>Jonathan</td>
-                <td>some date</td>
-                <td>Lollipop</td>
-                <td>Low</td>
-                <td>$7.00</td>
-              </tr>
+
+                 {{#each expenses}}
+                   <tr>
+                  
+                      <td>{{this.dataValues.name}}</td>
+                      <td>{{this.dataValues.category_id}}</td>
+                      <td>{{this.dataValues.priority}}</td>
+                      <td>{{this.dataValues.createdAt}}</td>
+                      <td>{{this.dataValues.amount}}</td> 
+                      <td>icon</td>
+                  
+                  </tr>
+                 {{/each}}
+              
             </tbody>
+            <tfoot>
+              <tr>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Priority</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Change/Remove</th>
+              </tr>
+            </tfoot>
           </table>
         </div>
                       
