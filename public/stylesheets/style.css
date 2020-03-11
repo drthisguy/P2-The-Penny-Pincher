@@ -1,5 +1,6 @@
 body {
    background-color: #ffe57f;
+   margin: 0;
 }
 
 form.signup,
@@ -27,14 +28,40 @@ form.login {
   padding: 2em;
 }
 
+
+
 .top {
   height: 40vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
+background-image: url(https://thumbs.dreamstime.com/b/color-money-background-stationery-739106.jpg);
   background-size: cover;
   background-position: center;
   position: relative;
-  opacity: 50%;
+  left: -0%;
+  width: 450px;
+  
 }
+
+.wrapper {
+  width: 10px;
+  float: right;
+  
+  
+ 
+  
+}
+
+
+
+.chart-wrapper {
+  width: 300px;
+  height: 300px;
+  
+
+
+  
+  
+}
+
 .ctrl-btn {
   margin-top: 10pt;
 }
@@ -44,7 +71,9 @@ form.login {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #fff;
+  color: black;
+  font-size: bold;
+  opacity: 100%;
 }
 
 .budget__title {
