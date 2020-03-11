@@ -17,13 +17,11 @@ $(document).ready(function() {
 
     //get list of expenses. 
     $.ajax({ 
-      url: `/api/expenses/${data.id}`, 
+      url: "/api/expenses", 
       method: "GET" 
     })
     .then(function(expenses) {
-    console.log("expenses", expenses)
-  
-          
+    console.log("expenses", expenses) 
       }
   )
   });
