@@ -11,11 +11,14 @@ form.login {
   text-align: right;
 }
 
+<<<<<<< HEAD
 .brand-logo {
   font-family: 'Sacramento', cursive;
   padding-left: 1em;
 }
 
+=======
+>>>>>>> 654f6dd82be7e68e9942fef55cfeefa67d08818e
 .card-title {
   font-size: xx-large;
 }
@@ -29,13 +32,15 @@ form.login {
 
 .top {
   height: 40vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(https://lh3.googleusercontent.com/proxy/aLAYmtkG58mtNpb94z0iYWENgv7xWLxp3JeBDxjzSO8RaC8QPczQbcKlP8lk0yThZqocNr2pRGOqX_ju0kIWWMh_AeqORUIybWESQyti_sTMR8M2QV6aTLNpWCXjLBqDIqirE2nAvVDIngqSvQKSttnwAj9zkNZXHZPa5xamst3_);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35));
   background-size: cover;
   background-position: center;
   position: relative;
   opacity: 50%;
 }
-
+.ctrl-btn {
+  margin-top: 10pt;
+}
 .budget {
   position: absolute;
   width: 350px;

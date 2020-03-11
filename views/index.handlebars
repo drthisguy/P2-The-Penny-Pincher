@@ -1,0 +1,138 @@
+      <div class="container">
+        <div class="row">
+            <div class="col s12">
+              <div class="card N/A transparent hoverable editor">
+                <div class="card-content black-text">
+                  <span class="card-title">Add New Item</span>
+                  <form class="add">
+                 
+                    <form class="col s12">
+                        <div class="input-field col s6">
+                          <input id="add-name" type="text" class="validate">
+                          <label for="add-name">Name:</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="currency" type="text" class="validate">
+                          <label for="currency">Amount:</label>
+                        </div>
+
+
+                  <div class="row">
+                    
+                      <div class="col s3">
+                      <div class="input-field">
+                        <input id="category-field" type="text" class="validate ctrl-btn">
+                        <label for="category">Category</label>
+                        <span class="helper-text" data-error="wrong" data-success="ready"></span>
+                      </div>
+                      </div>
+                    
+                  
+                    <div class="col s3">
+                      <div class="input-field">
+                        <input id="priority-field" type="text" class="validate ctrl-btn">
+                        <label for="priority">Priority</label>
+                        <span class="helper-text" data-error="wrong" data-success="ready"></span>
+                      </div>
+                    </div>
+                  </div>
+            
+                  
+                
+
+                  <div class="row">
+
+                  <div class="col s3 ">
+                  <!-- Dropdown Trigger -->
+                  <a class='dropdown-trigger btn' href='#' data-target='categories'>Categories</a>
+                  
+                  <!-- Dropdown Structure -->
+                  <ul id='categories' class='dropdown-content'>
+                  
+                    {{#each categories}}
+                  
+                    <li>
+                      <a href="#!" class="cat">{{this.dataValues.category}}</a>
+                    </li>
+                    <li class="divider" tabindex="-1"></li>
+                  
+                    {{/each}}
+                  
+                  </ul>
+                  </div>
+                  <div class="col s3 ">
+                  <!-- Dropdown Trigger -->
+                  <a class='dropdown-trigger btn' href='#' data-target='priority'>Priority</a>
+                  
+                  <!-- Dropdown Structure -->
+                  <ul id='priority' class='dropdown-content'>
+                    <li><a class="pri" href="#!">High</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <li><a class="pri" href="#!">Medium</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <li><a class="pri" href="#!">Low</a></li>
+                    <li class="divider" tabindex="-1"></li>           
+                  </ul>
+                </div>
+               
+                
+                <button class="btn waves-effect waves-light btn-large #000000 black right" type="submit" name="add-item">Add
+                  <i class="material-icons right">send</i>
+                </button>
+                </div>
+                </form>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+        </div>
+
+        <div class="container table">
+          <table id="table" class="striped responsive-table hover row-border">
+            <thead>
+              <tr>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Priority</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Change/Remove</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+
+                 {{#each expenses}}
+                   <tr>
+                  
+                      <td>{{this.dataValues.name}}</td>
+                      <td>{{this.dataValues.category_id}}</td>
+                      <td>{{this.dataValues.priority}}</td>
+                      <td>{{this.dataValues.createdAt}}</td>
+                      <td>{{this.dataValues.amount}}</td> 
+                      <td>icon</td>
+                  
+                  </tr>
+                 {{/each}}
+              
+            </tbody>
+            <tfoot>
+              <tr>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Priority</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Change/Remove</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+                      
+  
+                      
+             
+      
+    
