@@ -1,14 +1,15 @@
 $(document).ready(function() {
 
+  const ui = new UICtrl;
 
   //init datatables
-  $("#table").DataTable({
-    responsive: true
-  });
+  $("#table").DataTable({ responsive: true });
 
   //init materialize 
   M.AutoInit();
 
+  //hide edit state buttons
+  ui.hideEditState();
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(function(data) {
@@ -32,7 +33,7 @@ $(document).ready(function() {
   catInput.blur();
   catInput.val('Miscellaneous');
 
-  //listen for new catagory
+  //listen for new category
   $('li>a.cat').on('click',  function() {
    
   catInput.val($(this).text());       
@@ -49,6 +50,12 @@ $(document).ready(function() {
    
   priorInput.val($(this).text());       
 });
+
+//listen for edit btm
+$(".edit").on("click", (e) => {
+  e.preventDefault();
+  ui.startEditState()
+})
 
 //The rest of this code, formats the "Amount" value for currency.  
 $("#amount-field").on({
@@ -145,8 +152,11 @@ const ItemCtrl = (function(){
     getUser: () => $.get("/api/user_data").then(data => data),
 
     newPost: (newItem) => $.post("/api/expenses", newItem).then(data => data),
-    
+
+    deletePost: (item) => $.delete("/api/expenses", item).then(data => data),
+
   }
+
 })();
 
 })

@@ -1,6 +1,5 @@
-
-
-export class UICtrl  {
+console.log('hello world');
+class UICtrl  {
 
     constructor() { 
       this.name=  $("#name-field").val().trim(),
@@ -17,10 +16,10 @@ export class UICtrl  {
 
 
     addNewItem(user) {
-        const user = await ItemCtrl.getUser(),
+        // const user = await ItemCtrl.getUser(),
 
-        newItem = {
-          user_id: user.id,
+       const newItem = {
+          // user_id: user.id,
           name:  this.name,
           amount: this.amount.replace(/[$,]/gi, ""),  //remove $ sign and commas,
           category: this.category,
@@ -43,7 +42,7 @@ export class UICtrl  {
         this.addBtn.hide();
     }
 
-    stopEditState() {
+    hideEditState() {
         this.updateBtn.hide();
         this.cancelBtn.hide();
         this.deleteBtn.hide();
