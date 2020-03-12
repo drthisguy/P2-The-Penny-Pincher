@@ -33,4 +33,9 @@ Object.keys(db).forEach(function(modelName) {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
+
+//associate the named table from categories with the expenses table instead of to the ID#.
+db.Expense.belongsTo(db.Category, { targetKey: 'category', foreignKey: 'category' });
+
+
 module.exports = db;

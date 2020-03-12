@@ -14,12 +14,12 @@ module.exports = function(sequelize, DataTypes) {
             key: "id"
         }
       },
-      category_id: {
-        type: DataTypes.INTEGER,
+      category: {
+        type: DataTypes.STRING,
         allowNull: false,
         references: {
             model: "Categories",
-            key: "id"
+            key: "category"
         }
       },
       priority: {
