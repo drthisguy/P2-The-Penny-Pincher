@@ -52,10 +52,11 @@ module.exports = function(app) {
       amount: req.body.amount
     }, {
       where: {
-        id: req.body.id
+        id: req.body.item_id
       }
     }).then( response => res.json(response))
-      .catch(err => {res.status(501).json(err);});
+      // .catch(err => {res.status(501).json(err);});
+      .catch(err => console.log(err));
   });
 
 
@@ -82,9 +83,19 @@ module.exports = function(app) {
     db.Expense.findOne({
       where: {
         id: req.params.id
-      }}).then( data => {
-      console.log("data", data)
-        
+      }}).then( data => {        
+
+        res.json(data);
+      })
+  });
+
+  // Route to remove an item 
+  app.delete("/api/expenses/:id", (req, res) => {
+    
+    db.Expense.destroy({
+      where: {
+        id: req.params.id
+      }}).then( data => {        
 
         res.json(data);
       })

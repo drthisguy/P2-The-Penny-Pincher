@@ -1,4 +1,4 @@
-console.log("hello world");
+
 class UICtrl  {
 
     constructor() { 
@@ -15,19 +15,16 @@ class UICtrl  {
 
    dbWrite(user, cb) {
  
-       const newItem = {
+       const item = {
           user_id: user.id,
+          item_id: user.itemId,
           name:   $(this.name).val().trim(),
           amount: $(this.amount).val().replace(/[$,]/gi, ""),  //remove $ sign and commas,
           category:$(this.category).val().trim(),
           priority: $(this.priority).val().trim()
         }
-        console.log(newItem);
-        cb(newItem).catch(err => {
-          if (err.status === 501) {
-            console.log("Invalid Input. Please try again");
-          } 
-        })
+    
+        cb(item);
     }
 
     startEditState() {

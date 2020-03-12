@@ -2,33 +2,20 @@ $(document).ready(function() {
 
   const ui = new UICtrl;
 
-  let editId;
-
+  
   //init datatables
   $("#table").DataTable({ responsive: true });
-
+  
   //init materialize 
   M.AutoInit();
-
+  
   //hide edit state buttons
   ui.hideEditState();
-
   
-  // This file just does a GET request to figure out which user is logged in
-  // and updates the HTML on the page
-  $.get("/api/user_data").then(function(data) {
-    $(".member-name").text(data.email);
-   
-
-    //get list of expenses. 
-    $.ajax({ 
-      url: "/api/expenses", 
-      method: "GET" 
-    })
-    .then(function(expenses) {
-      }
-  )
-  });
+  //set global variable in event of a delete
+  let editId;
+  
+  
 
   //set default category
   let catInput = $("#category-field");
@@ -58,11 +45,11 @@ $(document).ready(function() {
 $(".edit").on("click",  async function()  {
 
   ui.startEditState();
+
+  //set data in global variable in case of delete event.
   editId = $(this).data();
-  console.log("editId", editId)
  
    currentItem = await ItemCtrl.getItemById(editId.id);
-   
 
   const edit = {
     name: currentItem.name,
@@ -71,7 +58,6 @@ $(".edit").on("click",  async function()  {
     amount: currentItem.amount
   }
   ui.populate(edit);
-  console.log("edit", edit)
 })
 
 //listen for cancel edit btn
@@ -81,11 +67,17 @@ $("#cancel-btn").on("click", (e) => {
   ui.clearInputs();
 })
 
-//listen for update btn
-$("#update-btn").on("click", () => {
+// //Update btn
+// $("#update-btn").on("click", () => {
   
-  ui.hideEditState();
-})
+//   ui.hideEditState();
+// })
+
+// //Delete btn
+// $("#delete-btn").on("click", () => {
+  
+//   ItemCtrl.deletePost
+// })
 
 //The rest of this code, formats the "Amount" value for currency.  
 $("#amount-field").on({
@@ -93,7 +85,7 @@ $("#amount-field").on({
     formatCurrency($(this));
   },
   blur: function() { 
-    formatCurrency($(this), "blured");
+    formatCurrency($(this), "blurred");
   }
 });
 
@@ -153,22 +145,26 @@ currency[0].setSelectionRange(cursorPosition, cursorPosition);
 
 
 // add new item to budget
-$("#add-btn").on("click", async () => {
-
+$("#add-btn").on("click", async (e) => {
+e.preventDefault();
    const user = await ItemCtrl.getUser();
   
-   ui.dbWrite(user, ItemCtrl.newPost);
+   ui.dbWrite(user, ItemCtrl.newItem);
 
 });
 
-// add new item to budget
-$("#update-btn").on("click", async () => {
-
+// update item in budget
+$("#update-btn").on("click", async (e) => {
+e.preventDefault();
+  //gather any data that may be needed
    const user = await ItemCtrl.getUser();
+   user.itemId = editId.id;
   
-   ui.dbWrite(user, ItemCtrl.updatePost);
-
+   ui.dbWrite(user, ItemCtrl.updateItem);
 });
+
+// delete item in budget
+$("#delete-btn").on("click", () => ItemCtrl.deleteItem(editId.id));
 
 
 const ItemCtrl = (function(){ 
@@ -178,14 +174,25 @@ const ItemCtrl = (function(){
 
     getUser: () => $.get("/api/user_data").then(data => data),
 
-    newPost: (newItem) => $.post("/api/expenses", newItem).then(data => data),
+    getItemById: id => $.get(`/api/expenses/${id}`).then( data => data),
+
+    newItem: newItem => $.post("/api/expenses", newItem).then(data => data),
     
-    updatePost: (changedItem) => $.put("/api/expenses", changedItem).then(data => data),
+    updateItem: chngdItem => {
+      $.ajax({
+        method: "PUT",
+        url: "/api/expenses",
+        data: chngdItem
+      }).then((data => data))},
 
-    deletePost: (rmItem) => $.delete("/api/expenses", rmItem).then(data => data),
-
-    getItemById: (id) => $.get(`/api/expenses/${id}`).then( data => data),
-
+    deleteItem: id=> {
+      $.ajax({
+        method: "DELETE",
+        url: "/api/expenses",
+        data: id
+      }).then((data => data))},
+    
+    // deleteItem: (rmItem) => $.delete("/api/expenses", rmItem).then(data => data),
   }
 })();
 
