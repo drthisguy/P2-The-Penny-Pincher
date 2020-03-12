@@ -1,18 +1,40 @@
 $(document).ready(function() {
 
+  const ui = new UICtrl,
+
+  editId; 
 
   //init datatables
-  $("#table").DataTable({
-    responsive: true
-  });
+  $("#table").DataTable(
+    {
+      responsive: true,
+      "columnDefs": [
+        {
+            "targets": [ 0 ],
+            "visible": false,
+            "searchable": false
+        }
+    ]});
 
   //init materialize 
   M.AutoInit();
 
+  //hide edit state buttons
+  ui.hideEditState();
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.email);
+    console.log("data", data.id)
+
+    //get list of expenses. 
+    $.ajax({ 
+      url: "/api/expenses", 
+      method: "GET" 
+    })
+    .then(function(expenses) {
+      }
+  )
   });
 
   //set default category
@@ -21,7 +43,7 @@ $(document).ready(function() {
   catInput.blur();
   catInput.val('Miscellaneous');
 
-  //listen for new catagory
+  //listen for new category
   $('li>a.cat').on('click',  function() {
    
   catInput.val($(this).text());       
@@ -39,8 +61,36 @@ $(document).ready(function() {
   priorInput.val($(this).text());       
 });
 
+//listen for edit btn
+$(".edit").on("click", () => {
+
+  ui.startEditState();
+  editId = $(this).siblings('.edit-id').val();
+
+  const edit = {
+    name: $(this).siblings('.edit-name').val(),
+    category: $(this).siblings('.edit-category').val(),
+    priority: $(this).siblings('.edit-priority').val(),
+    amount: $(this).siblings('.edit-amount').val(),
+  }
+  ui.populate(edit);
+  
+})
+
+//listen for cancel edit btn
+$("#cancel-btn").on("click", (e) => {
+  e.preventDefault();
+  ui.hideEditState();
+})
+
+//listen for update btn
+$("#update-btn").on("click", () => {
+  
+  ui.hideEditState();
+})
+
 //The rest of this code, formats the "Amount" value for currency.  
-$("#currency").on({
+$("#amount-field").on({
   keyup: function() {
     formatCurrency($(this));
   },
@@ -96,7 +146,6 @@ if (amount.indexOf(".") >= 0) {
 
 // return string to field
 currency.val(amount);
-console.log("formatCurrency -> currency", currency)
 
 // restore cursor
 const finalLength = amount.length;
@@ -105,22 +154,39 @@ currency[0].setSelectionRange(cursorPosition, cursorPosition);
 }
 
 
+// add new item to budget
+$("#add-btn").on("click", async () => {
 
-//Item Controller
-var ItemCtrl = (function(){ 
+   const user = await ItemCtrl.getUser();
   
+   ui.dbWrite(user, ItemCtrl.newPost);
+
+});
+
+// add new item to budget
+$("#update-btn").on("click", async () => {
+
+   const user = await ItemCtrl.getUser();
+  
+   ui.dbWrite(user, ItemCtrl.updatePost);
+
+});
+
+
+const ItemCtrl = (function(){ 
   return {
     
-    //get all expenses/income. 
-    getItems: () => $.get("/api/expenses").then( data =>  data)
-    ,
+    getItems: () => $.get("/api/expenses").then( data => data),
+
+    getUser: () => $.get("/api/user_data").then(data => data),
+
+    newPost: (newItem) => $.post("/api/expenses", newItem).then(data => data),
+    
+    updatePost: (changedItem) => $.put("/api/expenses", changedItem).then(data => data),
+
+    deletePost: (rmItem) => $.delete("/api/expenses", rmItem).then(data => data),
+
   }
 })();
 
-(async function editor() {
-  
-  let budget = await ItemCtrl.getItems()
-  console.log("budget", budget)
-})();
-
-});
+})

@@ -1,6 +1,3 @@
-// const category = require("./category")
-// console.log("Category", category)
-
 
 module.exports = function(sequelize, DataTypes) {
     
@@ -20,8 +17,11 @@ module.exports = function(sequelize, DataTypes) {
       },
       category: {
         type: DataTypes.STRING,
-        allowNull: true,
-        
+        allowNull: false,
+        references: {
+            model: "Categories",
+            key: "category"
+        }
       },
       priority: {
         type: DataTypes.ENUM,

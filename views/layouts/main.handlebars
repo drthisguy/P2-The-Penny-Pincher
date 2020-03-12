@@ -6,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-   <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
@@ -69,13 +69,16 @@
                   <td>Balance:</td>
                   <td><div class="balance"></div></td>
               </tr>
-              <t>
+              <t>   
                   <td>Discretionary Spending:</td>
                   <td><div class="dis-amount"></div></td>
                   <td><div class="dis-percent"></div></td>
-              </tr>
+              </tr>                
             </tbody>
             </table>
+            
+                 <a id="anchor-edit"></a> <!-- anchor for edit state.-->
+            
             </div>
             </div>
             <div class="col s6"></div>
@@ -83,34 +86,11 @@
 
     </div>
 </div>
-            
-{{!--               
-              <div class="budget__value">+ 2,345.64</div>
-              
-              <div class="budget__income clearfix">
-                  <div class="budget__income--text">Income</div>
-                  <div class="right">
-                      <div class="budget__income--value">+ 4,300.00</div>
-                      <div class="budget__income--percentage">&nbsp;</div>
-                  </div>
-              </div>
-              
-              <div class="budget__expenses clearfix">
-                  <div class="budget__expenses--text">Expenses</div>
-                  <div class="right clearfix">
-                      <div class="budget__expenses--value">- 1,954.36</div>
-                      <div class="budget__expenses--percentage">45%</div>
-                  </div>
-              </div>
-          </div>
-      </div>
-        </div> --}}
 
     {{{ body }}}
 
 
-  <script src="/js/members.js"></script>
 </body>
-    
-  
+  <script src="/js/UICtrl.js"></script>
+  <script src="/js/members.js"></script>
 </html>

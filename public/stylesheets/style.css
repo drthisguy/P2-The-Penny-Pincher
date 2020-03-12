@@ -12,14 +12,6 @@ form.login {
   text-align: right;
 }
 
-<<<<<<< HEAD
-.brand-logo {
-  font-family: 'Sacramento', cursive;
-  padding-left: 1em;
-}
-
-=======
->>>>>>> 654f6dd82be7e68e9942fef55cfeefa67d08818e
 .card-title {
   font-size: xx-large;
 }
@@ -155,5 +147,9 @@ h3 {
 }
 
 .container {
-  margin-top: 30pt;
+  margin-top: 35pt;
+}
+
+.waves-effect {
+  margin-left: 15pt;
 }

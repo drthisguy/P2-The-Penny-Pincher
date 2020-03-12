@@ -1,5 +1,3 @@
-/* Here is an controller for the on page charts. */
-
 
 let ctx = document.getElementById('myChart').getContext('2d');
 let labels = ['i', 'am', 'awesome'];
