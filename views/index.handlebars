@@ -75,6 +75,9 @@
                     <li class="divider" tabindex="-1"></li>           
                   </ul>
                 </div>
+                <button id="add" class="btn waves-effect waves-light btn-large #000000 black right" type="submit" name="add-item">Add
+                  <i class="material-icons right">send</i>
+                 </button>
                </div>
                 
               <div class="row">
@@ -84,9 +87,6 @@
                   <i class="material-icons left">sync</i>
                 <button id="delete-btn" class="btn waves-effect waves-light btn-large red darken-1 right" name="add-item">Delete
                   <i class="material-icons left">delete_forever</i>
-                <button id="add" class="btn waves-effect waves-light btn-large #000000 black right" type="submit" name="add-item">Add
-                  <i class="material-icons right">send</i>
-                 </button>
                 </div>
                 
                 </form>
@@ -121,7 +121,8 @@
                       <td>{{this.dataValues.priority}}</td>
                       <td>{{this.dataValues.createdAt}}</td>
                       <td>{{this.dataValues.amount}}</td> 
-                      <td><a href=""><i class="small material-icons edit right">edit</i></a></td>
+                      <td><a href="#anchor-edit">
+                        <i class="small material-icons edit right">edit</i></a></td>
                   
                   </tr>
                  {{/each}}

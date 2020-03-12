@@ -51,10 +51,22 @@ $(document).ready(function() {
   priorInput.val($(this).text());       
 });
 
-//listen for edit btm
+//listen for edit btn
 $(".edit").on("click", (e) => {
+  // e.preventDefault();
+  ui.startEditState();
+})
+
+//listen for cancel edit btn
+$("#cancel-btn").on("click", (e) => {
   e.preventDefault();
-  ui.startEditState()
+  ui.hideEditState();
+})
+
+//listen for update btn
+$("#update-btn").on("click", () => {
+  
+  ui.hideEditState();
 })
 
 //The rest of this code, formats the "Amount" value for currency.  
@@ -123,24 +135,21 @@ currency[0].setSelectionRange(cursorPosition, cursorPosition);
 
 
 // add new item to budget
-$("#add").on("click", async () => {
+$("#add").on("click", async (e) => {
+  e.preventDefault();
   
-   const user = await ItemCtrl.getUser(),
+   const user = await ItemCtrl.getUser();
 
-   newItem = {
-     user_id: user.id,
-     name:  $("#name-field").val().trim(),
-     amount: $("#amount-field").val().trim().replace(/[$,]/gi, ""),  //remove $ sign and commas,
-     category: $("#category-field").val().trim(),
-     priority: $("#priority-field").val().trim()
-   }
-   ItemCtrl.newPost(newItem).then( response => {
-    
-   }).catch(err => {
-     if (err.status === 501) {
-      console.log('Invalid Input. Please try again');
-     } 
-      })
+  //  newItem = {
+  //    user_id: user.id,
+  //    name:  $("#name-field").val().trim(),
+  //    amount: $("#amount-field").val().trim().replace(/[$,]/gi, ""),  //remove $ sign and commas,
+  //    category: $("#category-field").val().trim(),
+  //    priority: $("#priority-field").val().trim()
+  //  }
+  
+
+  ui.getUserInput(user, ItemCtrl.newPost);
   })
 
 
@@ -152,8 +161,10 @@ const ItemCtrl = (function(){
     getUser: () => $.get("/api/user_data").then(data => data),
 
     newPost: (newItem) => $.post("/api/expenses", newItem).then(data => data),
+    
+    updatePost: (changedItem) => $.put("/api/expenses", changedItem).then(data => data),
 
-    deletePost: (item) => $.delete("/api/expenses", item).then(data => data),
+    deletePost: (rmItem) => $.delete("/api/expenses", rmItem).then(data => data),
 
   }
 
