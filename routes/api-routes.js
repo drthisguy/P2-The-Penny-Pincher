@@ -30,6 +30,18 @@ module.exports = function(app) {
       });
   });
 
+  app.post("/api/expenses", function(req, res) {
+    db.Expense.create({
+      user_id: req.body.user_id,
+      name: req.body.name,
+      category: req.body.category,
+      priority: req.body.priority,
+      amount: req.body.amount
+    })
+      .then( response => res.json(response))
+      .catch(err => {res.status(501).json(err);});
+  });
+
   // Route for logging user out
   app.get("/logout", function(req, res) {
     req.logout();

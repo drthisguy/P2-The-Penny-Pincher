@@ -51,7 +51,7 @@ $(document).ready(function() {
 });
 
 //The rest of this code, formats the "Amount" value for currency.  
-$("#currency").on({
+$("#amount-field").on({
   keyup: function() {
     formatCurrency($(this));
   },
@@ -107,53 +107,51 @@ if (amount.indexOf(".") >= 0) {
 
 // return string to field
 currency.val(amount);
-console.log("formatCurrency -> currency", currency)
 
 // restore cursor
 const finalLength = amount.length;
 cursorPosition = finalLength - startLength + cursorPosition;
 currency[0].setSelectionRange(cursorPosition, cursorPosition);
 }
-});
 
-let ctx = document.getElementById('myChart').getContext('2d');
-let labels = ['i', 'am', 'awesome'];
-let colorHex = ['blue', 'green', 'red']
 
-let myChart = new Chart(ctx, {
-  type: 'pie',
-  data: {
-    datasets: [{
-      data: [30,10,40,20],
-      backgroundColor: colorHex
-    }],
-    labels: labels
-  },
-  options: {
-    responsive: true,
-    legend: {
-      position: 'bottom'
-    },
-    plugins: {
-      datalabels: {
-        color: '#fff',
-        anchor: 'end',
-        align: 'start',
-        offset: -10,
-        borderWidth: 2,
-        borderColor: '#fff',
-        borderRadious: 25,
-        backgroundColor: (context) => {
-          return context.dataset.backgroundColor;
-        },
-        font: {
-          weight: 'bold',
-          size: '10'
-        },
-        formatter: (value) => {
-          return value + '%';
-        }
-      }
-    }
+
+$("#add").on("click", async () => {
+  
+  // const namefield = $("#name-field").val().trim(),
+  //  amountfield = $("#amount-field").val().trim().replace(/[$,]/gi, ""),  //remove $ sign and commas
+  //  catField = $("#category-field").val().trim(),
+  //  priorfield = $("#priority-field").val().trim(),
+   const user = await ItemCtrl.getUser(),
+
+   newItem = {
+     user_id: user.id,
+     name:  $("#name-field").val().trim(),
+     amount: $("#amount-field").val().trim().replace(/[$,]/gi, ""),  //remove $ sign and commas,
+     category: $("#category-field").val().trim(),
+     priority: $("#priority-field").val().trim()
+   }
+   ItemCtrl.newPost(newItem).then( response => {
+   console.log("response", response)
+    
+   }).catch(err => {
+     if (err.status === 501) {
+      console.log('Invalid Input. Please try again');
+     } 
+      })
+  })
+
+
+const ItemCtrl = (function(){ 
+  return {
+    
+    getItems: () => $.get("/api/expenses").then( data => data),
+
+    getUser: () => $.get("/api/user_data").then(data => data),
+
+    newPost: (newItem) => $.post("/api/expenses", newItem).then(data => data),
+    
   }
+})();
+
 })
