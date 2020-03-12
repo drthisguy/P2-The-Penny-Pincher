@@ -12,14 +12,6 @@ form.login {
   text-align: right;
 }
 
-<<<<<<< HEAD
-.brand-logo {
-  font-family: 'Sacramento', cursive;
-  padding-left: 1em;
-}
-
-=======
->>>>>>> 654f6dd82be7e68e9942fef55cfeefa67d08818e
 .card-title {
   font-size: xx-large;
 }
@@ -152,4 +144,8 @@ h3 {
   background-color: #4caf50;
   font-family: 'Roboto Slab', serif;
   font-size: larger;
+}
+
+.container {
+  margin-top: 35pt;
 }
