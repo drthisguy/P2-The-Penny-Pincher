@@ -115,13 +115,9 @@ currency[0].setSelectionRange(cursorPosition, cursorPosition);
 }
 
 
-
+// add new item to budget
 $("#add").on("click", async () => {
   
-  // const namefield = $("#name-field").val().trim(),
-  //  amountfield = $("#amount-field").val().trim().replace(/[$,]/gi, ""),  //remove $ sign and commas
-  //  catField = $("#category-field").val().trim(),
-  //  priorfield = $("#priority-field").val().trim(),
    const user = await ItemCtrl.getUser(),
 
    newItem = {
@@ -132,7 +128,6 @@ $("#add").on("click", async () => {
      priority: $("#priority-field").val().trim()
    }
    ItemCtrl.newPost(newItem).then( response => {
-   console.log("response", response)
     
    }).catch(err => {
      if (err.status === 501) {
