@@ -75,7 +75,7 @@
                     <li class="divider" tabindex="-1"></li>           
                   </ul>
                 </div>
-                <button id="add" class="btn waves-effect waves-light btn-large #000000 black right" type="submit" name="add-item">Add
+                <button id="add-btn" class="btn waves-effect waves-light btn-large #000000 black right" type="submit" name="add-item">Add
                   <i class="material-icons right">send</i>
                  </button>
                </div>
@@ -101,7 +101,9 @@
         <div class="container table">
           <table id="table" class="striped responsive-table hover row-border">
             <thead>
+              <span><data value = '5'></data></span>
               <tr>
+                  <th>id</th>
                   <th>Name</th>
                   <th>Category</th>
                   <th>Priority</th>
@@ -114,17 +116,18 @@
             <tbody>
 
                  {{#each expenses}}
+              
                    <tr>
-                  
-                      <td>{{this.dataValues.name}}</td>
-                      <td>{{this.dataValues.category}}</td>
-                      <td>{{this.dataValues.priority}}</td>
+                      <td class="edit-id">{{this.dataValues.id}}</td>
+                      <span class="edit-name"><td>{{this.dataValues.name}}</td></span>
+                      <span class="edit-category"><td>{{this.dataValues.category}}</td></span>
+                      <td class="edit-prioriy">{{this.dataValues.priority}}</td>
                       <td>{{this.dataValues.createdAt}}</td>
-                      <td>{{this.dataValues.amount}}</td> 
+                      <td class="edit-amount">${{this.dataValues.amount}}</td> 
                       <td><a href="#anchor-edit">
-                        <i class="small material-icons edit right">edit</i></a></td>
-                  
+                      <i class="small material-icons edit right">edit</i></a></td>
                   </tr>
+
                  {{/each}}
               
             </tbody>

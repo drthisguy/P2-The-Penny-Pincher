@@ -1,9 +1,20 @@
 $(document).ready(function() {
 
-  const ui = new UICtrl;
+  const ui = new UICtrl,
+
+  editId; 
 
   //init datatables
-  $("#table").DataTable({ responsive: true });
+  $("#table").DataTable(
+    {
+      responsive: true,
+      "columnDefs": [
+        {
+            "targets": [ 0 ],
+            "visible": false,
+            "searchable": false
+        }
+    ]});
 
   //init materialize 
   M.AutoInit();
@@ -22,7 +33,6 @@ $(document).ready(function() {
       method: "GET" 
     })
     .then(function(expenses) {
-    console.log("expenses", expenses) 
       }
   )
   });
@@ -52,9 +62,19 @@ $(document).ready(function() {
 });
 
 //listen for edit btn
-$(".edit").on("click", (e) => {
-  // e.preventDefault();
+$(".edit").on("click", () => {
+
   ui.startEditState();
+  editId = $(this).siblings('.edit-id').val();
+
+  const edit = {
+    name: $(this).siblings('.edit-name').val(),
+    category: $(this).siblings('.edit-category').val(),
+    priority: $(this).siblings('.edit-priority').val(),
+    amount: $(this).siblings('.edit-amount').val(),
+  }
+  ui.populate(edit);
+  
 })
 
 //listen for cancel edit btn
@@ -135,22 +155,22 @@ currency[0].setSelectionRange(cursorPosition, cursorPosition);
 
 
 // add new item to budget
-$("#add").on("click", async (e) => {
-  e.preventDefault();
-  
+$("#add-btn").on("click", async () => {
+
    const user = await ItemCtrl.getUser();
-
-  //  newItem = {
-  //    user_id: user.id,
-  //    name:  $("#name-field").val().trim(),
-  //    amount: $("#amount-field").val().trim().replace(/[$,]/gi, ""),  //remove $ sign and commas,
-  //    category: $("#category-field").val().trim(),
-  //    priority: $("#priority-field").val().trim()
-  //  }
   
+   ui.dbWrite(user, ItemCtrl.newPost);
 
-  ui.getUserInput(user, ItemCtrl.newPost);
-  })
+});
+
+// add new item to budget
+$("#update-btn").on("click", async () => {
+
+   const user = await ItemCtrl.getUser();
+  
+   ui.dbWrite(user, ItemCtrl.updatePost);
+
+});
 
 
 const ItemCtrl = (function(){ 
@@ -167,7 +187,6 @@ const ItemCtrl = (function(){
     deletePost: (rmItem) => $.delete("/api/expenses", rmItem).then(data => data),
 
   }
-
 })();
 
 })
