@@ -67,4 +67,11 @@ class UICtrl  {
       amountField.val(edit.amount);
 
     }
+
+    clearInputs() {
+      $(this.name).val("");
+      $(this.amount).val("");
+      $(this.category).val("Miscellaneous");
+      $(this.priority).val("Medium");
+    }
 }

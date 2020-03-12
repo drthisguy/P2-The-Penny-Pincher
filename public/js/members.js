@@ -72,13 +72,13 @@ $(".edit").on("click",  async function()  {
   }
   ui.populate(edit);
   console.log("edit", edit)
-  
 })
 
 //listen for cancel edit btn
 $("#cancel-btn").on("click", (e) => {
   e.preventDefault();
   ui.hideEditState();
+  ui.clearInputs();
 })
 
 //listen for update btn
