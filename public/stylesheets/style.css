@@ -3,13 +3,19 @@ body {
    margin: 0;
 }
 
-form.signup,
+/* form.signup,
 form.login {
   margin-top: 50px;
-}
+} */
 
 #nav-mobile {
   text-align: right;
+}
+
+
+.brand-logo {
+  font-family: 'Sacramento', cursive;
+  padding-left: 1em;
 }
 
 .card-title {
@@ -21,6 +27,9 @@ form.login {
   background-color: whitesmoke;
   margin-top: 2em;
   padding: 2em;
+  border-width: 2%;
+  border-color: #f8f3e2;
+  border-style: solid;
 }
 
 
@@ -138,6 +147,7 @@ h3 {
 
 #form-header {
   font-family: 'Montserrat', sans-serif;
+  color: #4caf50;
 }
 
 #submit-button {
@@ -146,10 +156,23 @@ h3 {
   font-size: larger;
 }
 
+
+.form-img-div {
+  text-align: center;
+}
+
+.form-img {
+  position: relative;
+  width: 6%;
+  height: 6%;
+  margin-top: 1%;
+  
+
 .container {
   margin-top: 35pt;
 }
 
 .waves-effect {
   margin-left: 15pt;
+
 }
