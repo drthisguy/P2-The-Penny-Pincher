@@ -81,11 +81,11 @@
                </div>
                 
               <div class="row">
-                  <button id="cancel-btn" class="btn waves-effect waves-light btn-large grey darken-1 right" name="add-item">Cancel
+                  <button id="cancel-btn" class="btn waves-effect waves-light btn-large grey darken-1 right" name="cancel-edit">Cancel
                   <i class="material-icons left">backspace</i>
-                <button id="update-btn" class="btn waves-effect waves-light btn-large orange darken-1 right" name="add-item">Update
+                <button id="update-btn" class="btn waves-effect waves-light btn-large orange darken-1 right" name="update-item">Update
                   <i class="material-icons left">sync</i>
-                <button id="delete-btn" class="btn waves-effect waves-light btn-large red darken-1 right" name="add-item">Delete
+                <button id="delete-btn" class="btn waves-effect waves-light btn-large red darken-1 right" name="delete-item">Delete
                   <i class="material-icons left">delete_forever</i>
                 </div>
                 
@@ -103,7 +103,6 @@
             <thead>
               <span><data value = '5'></data></span>
               <tr>
-                  <th>id</th>
                   <th>Name</th>
                   <th>Category</th>
                   <th>Priority</th>
@@ -118,14 +117,13 @@
                  {{#each expenses}}
               
                    <tr>
-                      <td class="edit-id">{{this.dataValues.id}}</td>
-                      <span class="edit-name"><td>{{this.dataValues.name}}</td></span>
-                      <span class="edit-category"><td>{{this.dataValues.category}}</td></span>
-                      <td class="edit-prioriy">{{this.dataValues.priority}}</td>
-                      <td>{{this.dataValues.createdAt}}</td>
-                      <td class="edit-amount">${{this.dataValues.amount}}</td> 
+                      <td>{{this.name}}</td>
+                      <td>{{this.category}}</td>
+                      <td>{{this.priority}}</td>
+                      <td>{{this.createdAt}}</td>
+                      <td>${{this.amount}}</td> 
                       <td><a href="#anchor-edit">
-                      <i class="small material-icons edit right">edit</i></a></td>
+                      <i data-id={{this.id}} class="small material-icons edit right">edit</i></a></td>
                   </tr>
 
                  {{/each}}

@@ -1,41 +1,21 @@
 $(document).ready(function() {
 
-  const ui = new UICtrl,
+  const ui = new UICtrl;
 
-  editId; 
-
+  
   //init datatables
-  $("#table").DataTable(
-    {
-      responsive: true,
-      "columnDefs": [
-        {
-            "targets": [ 0 ],
-            "visible": false,
-            "searchable": false
-        }
-    ]});
-
+  $("#table").DataTable({ responsive: true });
+  
   //init materialize 
   M.AutoInit();
-
+  
   //hide edit state buttons
   ui.hideEditState();
-  // This file just does a GET request to figure out which user is logged in
-  // and updates the HTML on the page
-  $.get("/api/user_data").then(function(data) {
-    $(".member-name").text(data.email);
-    console.log("data", data.id)
-
-    //get list of expenses. 
-    $.ajax({ 
-      url: "/api/expenses", 
-      method: "GET" 
-    })
-    .then(function(expenses) {
-      }
-  )
-  });
+  
+  //set global variable in event of a delete
+  let editId;
+  
+  
 
   //set default category
   let catInput = $("#category-field");
@@ -62,32 +42,42 @@ $(document).ready(function() {
 });
 
 //listen for edit btn
-$(".edit").on("click", () => {
+$(".edit").on("click",  async function()  {
 
   ui.startEditState();
-  editId = $(this).siblings('.edit-id').val();
+
+  //set data in global variable in case of delete event.
+  editId = $(this).data();
+ 
+   currentItem = await ItemCtrl.getItemById(editId.id);
 
   const edit = {
-    name: $(this).siblings('.edit-name').val(),
-    category: $(this).siblings('.edit-category').val(),
-    priority: $(this).siblings('.edit-priority').val(),
-    amount: $(this).siblings('.edit-amount').val(),
+    name: currentItem.name,
+    category: currentItem.category,
+    priority: currentItem.priority,
+    amount: currentItem.amount
   }
   ui.populate(edit);
-  
 })
 
 //listen for cancel edit btn
 $("#cancel-btn").on("click", (e) => {
   e.preventDefault();
   ui.hideEditState();
+  ui.clearInputs();
 })
 
-//listen for update btn
-$("#update-btn").on("click", () => {
+// //Update btn
+// $("#update-btn").on("click", () => {
   
-  ui.hideEditState();
-})
+//   ui.hideEditState();
+// })
+
+// //Delete btn
+// $("#delete-btn").on("click", () => {
+  
+//   ItemCtrl.deletePost
+// })
 
 //The rest of this code, formats the "Amount" value for currency.  
 $("#amount-field").on({
@@ -95,7 +85,7 @@ $("#amount-field").on({
     formatCurrency($(this));
   },
   blur: function() { 
-    formatCurrency($(this), "blured");
+    formatCurrency($(this), "blurred");
   }
 });
 
@@ -155,21 +145,34 @@ currency[0].setSelectionRange(cursorPosition, cursorPosition);
 
 
 // add new item to budget
-$("#add-btn").on("click", async () => {
-
+$("#add-btn").on("click", async (e) => {
+e.preventDefault();
+  //gather any data that may be needed
    const user = await ItemCtrl.getUser();
+   user.itemId = editId.id;
   
-   ui.dbWrite(user, ItemCtrl.newPost);
+   ui.dbWrite(user, ItemCtrl.newItem);
 
 });
 
-// add new item to budget
+// update item in budget
 $("#update-btn").on("click", async () => {
 
+  //gather any data that may be needed
    const user = await ItemCtrl.getUser();
+   user.itemId = editId.id;
   
-   ui.dbWrite(user, ItemCtrl.updatePost);
+   ui.dbWrite(user, ItemCtrl.updateItem);
+});
 
+// delete item in budget
+$("#delete-btn").on("click", async (e) => {
+
+  e.preventDefault();
+  const user = await ItemCtrl.getUser();
+  user.itemId = editId
+  
+  ItemCtrl.deleteItem(user);
 });
 
 
@@ -180,12 +183,23 @@ const ItemCtrl = (function(){
 
     getUser: () => $.get("/api/user_data").then(data => data),
 
-    newPost: (newItem) => $.post("/api/expenses", newItem).then(data => data),
+    getItemById: id => $.get(`/api/expenses/${id}`).then( data => data),
+
+    newItem: newItem => $.post("/api/expenses", newItem).then(data => data),
     
-    updatePost: (changedItem) => $.put("/api/expenses", changedItem).then(data => data),
+    updateItem: chngdItem => {
+      $.ajax({
+        method: "PUT",
+        url: "/api/expenses",
+        data: chngdItem
+      }).then((data => data))},
 
-    deletePost: (rmItem) => $.delete("/api/expenses", rmItem).then(data => data),
-
+    deleteItem: rmItem => {
+      $.ajax({
+        method: "DELETE",
+        url: `/api/expenses/${rmItem.id}`,
+        data: rmItem
+      }).then((data => data))},
   }
 })();
 
