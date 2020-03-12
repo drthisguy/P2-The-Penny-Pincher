@@ -1,31 +1,24 @@
 $(document).ready(function() {
 
-  const ui = new UICtrl,
+  const ui = new UICtrl;
 
-  editId; 
+  let editId;
 
   //init datatables
-  $("#table").DataTable(
-    {
-      responsive: true,
-      "columnDefs": [
-        {
-            "targets": [ 0 ],
-            "visible": false,
-            "searchable": false
-        }
-    ]});
+  $("#table").DataTable({ responsive: true });
 
   //init materialize 
   M.AutoInit();
 
   //hide edit state buttons
   ui.hideEditState();
+
+  
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.email);
-    console.log("data", data.id)
+   
 
     //get list of expenses. 
     $.ajax({ 
@@ -62,18 +55,23 @@ $(document).ready(function() {
 });
 
 //listen for edit btn
-$(".edit").on("click", () => {
+$(".edit").on("click",  async function()  {
 
   ui.startEditState();
-  editId = $(this).siblings('.edit-id').val();
+  editId = $(this).data();
+  console.log("editId", editId)
+ 
+   currentItem = await ItemCtrl.getItemById(editId.id);
+   
 
   const edit = {
-    name: $(this).siblings('.edit-name').val(),
-    category: $(this).siblings('.edit-category').val(),
-    priority: $(this).siblings('.edit-priority').val(),
-    amount: $(this).siblings('.edit-amount').val(),
+    name: currentItem.name,
+    category: currentItem.category,
+    priority: currentItem.priority,
+    amount: currentItem.amount
   }
   ui.populate(edit);
+  console.log("edit", edit)
   
 })
 
@@ -185,6 +183,8 @@ const ItemCtrl = (function(){
     updatePost: (changedItem) => $.put("/api/expenses", changedItem).then(data => data),
 
     deletePost: (rmItem) => $.delete("/api/expenses", rmItem).then(data => data),
+
+    getItemById: (id) => $.get(`/api/expenses/${id}`).then( data => data),
 
   }
 })();

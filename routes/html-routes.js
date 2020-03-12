@@ -10,7 +10,7 @@ function formatTimeStamps(data) {
 
       data.forEach( time => {
 
-        time.dataValues.createdAt = moment(time).format("ddd, MMM Do, h:ma");
+        time.createdAt = moment(time).format("ddd, MMM Do, h:ma");
     }) 
     return data;
  }
@@ -45,10 +45,10 @@ module.exports = function(app) {
     db.Category.findAll( {} ).then( categories => {
 
       db.Expense.findAll({
+        raw: true,
         where: {
           user_id: req.user.id
-        } }).then( expenses => {
-        console.log("expenses", expenses[0].dataValues.createdAt)
+        } }).then( expenses => {      
           
           expenses = formatTimeStamps(expenses);
 

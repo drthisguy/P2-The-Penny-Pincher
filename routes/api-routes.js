@@ -75,6 +75,20 @@ module.exports = function(app) {
         res.json(data);
       })
   });
+
+  // Route to get item by id
+  app.get("/api/expenses/:id", (req, res) => {
+    
+    db.Expense.findOne({
+      where: {
+        id: req.params.id
+      }}).then( data => {
+      console.log("data", data)
+        
+
+        res.json(data);
+      })
+  });
   
 
 

@@ -18,7 +18,7 @@ class UICtrl  {
        const newItem = {
           user_id: user.id,
           name:   $(this.name).val().trim(),
-          amount: $(this.amount).val().trim().replace(/[$,]/gi, ""),  //remove $ sign and commas,
+          amount: $(this.amount).val().replace(/[$,]/gi, ""),  //remove $ sign and commas,
           category:$(this.category).val().trim(),
           priority: $(this.priority).val().trim()
         }
@@ -45,9 +45,26 @@ class UICtrl  {
     }
 
     populate(edit) {
-      $(this.name).val(edit.name);
-      $(this.priority).val(edit.priority);
-      $(this.category).val(edit.category);
-      $(this.amount).val(edit.amount);
+      
+      let nameField = $("#name-field");
+      nameField.siblings("label").toggleClass("active", true );
+      nameField.blur();
+      nameField.val(edit.name);
+
+      let categoryField = $("#category-field");
+      categoryField.siblings("label").toggleClass("active", true );
+      categoryField.blur();
+      categoryField.val(edit.category);
+
+      let priorityField = $("#priority-field");
+      priorityField.siblings("label").toggleClass("active", true );
+      priorityField.blur();
+      priorityField.val(edit.priority);
+
+      let amountField = $("#amount-field");
+      amountField.siblings("label").toggleClass("active", true );
+      amountField.blur();
+      amountField.val(edit.amount);
+
     }
 }
