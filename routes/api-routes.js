@@ -44,6 +44,7 @@ module.exports = function(app) {
 
   // PUT route for updating budget items
   app.put("/api/expenses", (req, res) => {
+
     db.Expense.update({
       user_id: req.body.user_id,
       name: req.body.name,
@@ -52,18 +53,31 @@ module.exports = function(app) {
       amount: req.body.amount
     }, {
       where: {
-        id: req.body.item_id
+        id: req.body.id
       }
     }).then( response => res.json(response))
       // .catch(err => {res.status(501).json(err);});
       .catch(err => console.log(err));
   });
 
+ // Route to remove an item 
+ app.delete("/api/expenses/:id", (req, res) => {
+    
+  db.Expense.destroy({
+    where: {
+      id: req.body.itemId.id
+    }}).then( data => {        
+
+      res.json(data);
+    })
+});
 
   // Route for logging user out
   app.get("/logout", function(req, res) {
+
     req.logout();
     res.redirect("/");
+    
   });
 
   // Route to get all items for a user
@@ -79,7 +93,6 @@ module.exports = function(app) {
 
   // Route to get item by id
   app.get("/api/expenses/:id", (req, res) => {
-    
     db.Expense.findOne({
       where: {
         id: req.params.id
@@ -89,17 +102,7 @@ module.exports = function(app) {
       })
   });
 
-  // Route to remove an item 
-  app.delete("/api/expenses/:id", (req, res) => {
-    
-    db.Expense.destroy({
-      where: {
-        id: req.params.id
-      }}).then( data => {        
-
-        res.json(data);
-      })
-  });
+ 
   
 
 

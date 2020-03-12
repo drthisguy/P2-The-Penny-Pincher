@@ -147,15 +147,17 @@ currency[0].setSelectionRange(cursorPosition, cursorPosition);
 // add new item to budget
 $("#add-btn").on("click", async (e) => {
 e.preventDefault();
+  //gather any data that may be needed
    const user = await ItemCtrl.getUser();
+   user.itemId = editId.id;
   
    ui.dbWrite(user, ItemCtrl.newItem);
 
 });
 
 // update item in budget
-$("#update-btn").on("click", async (e) => {
-e.preventDefault();
+$("#update-btn").on("click", async () => {
+
   //gather any data that may be needed
    const user = await ItemCtrl.getUser();
    user.itemId = editId.id;
@@ -164,7 +166,14 @@ e.preventDefault();
 });
 
 // delete item in budget
-$("#delete-btn").on("click", () => ItemCtrl.deleteItem(editId.id));
+$("#delete-btn").on("click", async (e) => {
+
+  e.preventDefault();
+  const user = await ItemCtrl.getUser();
+  user.itemId = editId
+  
+  ItemCtrl.deleteItem(user);
+});
 
 
 const ItemCtrl = (function(){ 
@@ -185,14 +194,12 @@ const ItemCtrl = (function(){
         data: chngdItem
       }).then((data => data))},
 
-    deleteItem: id=> {
+    deleteItem: rmItem => {
       $.ajax({
         method: "DELETE",
-        url: "/api/expenses",
-        data: id
+        url: `/api/expenses/${rmItem.id}`,
+        data: rmItem
       }).then((data => data))},
-    
-    // deleteItem: (rmItem) => $.delete("/api/expenses", rmItem).then(data => data),
   }
 })();
 

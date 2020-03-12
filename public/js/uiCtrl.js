@@ -16,14 +16,15 @@ class UICtrl  {
    dbWrite(user, cb) {
  
        const item = {
+          id: user.itemId,
           user_id: user.id,
-          item_id: user.itemId,
           name:   $(this.name).val().trim(),
           amount: $(this.amount).val().replace(/[$,]/gi, ""),  //remove $ sign and commas,
           category:$(this.category).val().trim(),
           priority: $(this.priority).val().trim()
         }
-    
+        console.log("UICtrl -> dbWrite -> item", item)
+        
         cb(item);
     }
 
