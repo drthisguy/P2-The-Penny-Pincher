@@ -39,7 +39,7 @@ module.exports = function(app) {
       priority: req.body.priority,
       amount: req.body.amount
     }).then( response => res.json(response))
-      .catch(err => {console.log(err);;});
+      .catch(err => res.status(501).json(err));
   });
 
   // PUT route for updating budget items
@@ -57,7 +57,7 @@ module.exports = function(app) {
       }
     }).then( response => res.json(response))
       // .catch(err => {res.status(501).json(err);});
-      .catch(err => console.log(err));
+      .catch(err => res.status(501).json(err));
   });
 
  // Route to remove an item 
