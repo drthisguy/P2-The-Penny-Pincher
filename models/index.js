@@ -36,7 +36,12 @@ db.Sequelize = Sequelize;
 
 
 //associate the named table from categories with the expenses table instead of the ID#.
-db.Expense.belongsTo(db.Category, { targetKey: 'category', foreignKey: 'category' });
+db.Expense.belongsTo(db.Category, { 
+  
+  targetKey: 'category', 
+  foreignKey: 'category',
+  
+ })
 
 
 module.exports = db;

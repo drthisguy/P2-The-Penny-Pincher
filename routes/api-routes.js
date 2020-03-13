@@ -35,11 +35,11 @@ module.exports = function(app) {
     db.Expense.create({
       user_id: req.body.user_id,
       name: req.body.name,
-      category: req.body.category,
+      category: null,
       priority: req.body.priority,
       amount: req.body.amount
     }).then( response => res.json(response))
-      .catch(err => {res.status(501).json(err);});
+      .catch(err => {console.log(err);;});
   });
 
   // PUT route for updating budget items
