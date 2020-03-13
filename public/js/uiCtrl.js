@@ -46,23 +46,23 @@ class UICtrl  {
       
       let nameField = $("#name-field");
       nameField.siblings("label").toggleClass("active", true );
-      nameField.blur();
       nameField.val(edit.name);
+      nameField.blur();
 
       let categoryField = $("#category-field");
       categoryField.siblings("label").toggleClass("active", true );
-      categoryField.blur();
       categoryField.val(edit.category);
+      categoryField.blur();
 
       let priorityField = $("#priority-field");
       priorityField.siblings("label").toggleClass("active", true );
-      priorityField.blur();
       priorityField.val(edit.priority);
+      priorityField.blur();
 
       let amountField = $("#amount-field");
       amountField.siblings("label").toggleClass("active", true );
-      amountField.blur();
       amountField.val(edit.amount);
+      amountField.blur();
 
     }
 
