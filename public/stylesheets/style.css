@@ -23,6 +23,40 @@ form.login {
 }
 
 
+/*******************
+ landing page 
+ ******************/
+.container-intro{
+  position: relative;
+  text-align: center;
+  background-color: #f8f3e2;
+  width: 100%;
+}
+
+#pig-intro {
+  position: relative;
+  width: 20%;
+  height: 20%;
+  margin-right: 20%;
+  /* margin-bottom: -1em; */
+}
+
+#logo-intro {
+  position: absolute;
+  top: 67%;
+  left: 15%;
+}
+
+.intro-subtitle {
+  position: absolute;
+  margin-top: 7%;
+  margin-left: 60%;
+  color: black;
+  font-size: x-large;
+  font-family: 'Roboto Slab', serif;
+}
+
+
 .form {
   background-color: whitesmoke;
   margin-top: 2em;
@@ -34,36 +68,78 @@ form.login {
 
 
 
+
+
+/* .container-items {
+  background-color: yellowgreen;
+  height: 500px; 
+} */
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+
+/******************* 
+log in sign in pages
+ *******************/
+#form-header {
+  font-family: 'Montserrat', sans-serif;
+  color: #4caf50;
+}
+
+.form-img-div {
+  text-align: center;
+}
+
+.form-img {
+  position: relative;
+  width: 6%;
+  height: 6%;
+  margin-top: 1%;
+}
+
+#submit-button {
+  background-color: #4caf50;
+  font-family: 'Roboto Slab', serif;
+  font-size: larger;
+}
+
+/*************** 
+Table page
+ **************/
+
+.container {
+  margin-top: 35pt;
+}
+
+.waves-effect {
+  margin-left: 15pt;
+}
+
 .top {
   height: 40vh;
-background-image: url(https://thumbs.dreamstime.com/b/color-money-background-stationery-739106.jpg);
+  background-color: #f8f3e2;
   background-size: cover;
   background-position: center;
   position: relative;
   left: -0%;
-  width: 450px;
+  width: auto;
   
 }
 
 .wrapper {
   width: 10px;
-  float: right;
-  
-  
- 
-  
+  float: right;  
 }
-
-
 
 .chart-wrapper {
   width: 300px;
-  height: 300px;
-  
-
-
-  
-  
+  height: 300px;  
 }
 
 .ctrl-btn {
@@ -96,83 +172,9 @@ background-image: url(https://thumbs.dreamstime.com/b/color-money-background-sta
   font-weight: bold;
 }
 
-.container-items {
-  
-  background-color: yellowgreen;
-  height: 500px;
-    
+#add-new-div {
+  background-color: #f8f3e2;
 }
-
-h2 {
-  text-align: center;
-}
-
-h3 {
-  text-align: center;
-}
-
 
 .add__description { width: 400px;}
 .add__value { width: 100px;}
-
-.container-intro{
-  position: relative;
-  text-align: center;
-  background-color: #f8f3e2;
-
-}
-
-#pig-intro {
-  position: relative;
-  width: 20%;
-  height: 20%;
-  margin-right: 20%;
-  /* margin-bottom: -1em; */
-}
-
-#logo-intro {
-  position: absolute;
-  top: 67%;
-  left: 15%;
-}
-
-.intro-subtitle {
-  position: absolute;
-  margin-top: 7%;
-  margin-left: 60%;
-  color: black;
-  font-size: x-large;
-  font-family: 'Roboto Slab', serif;
-}
-
-#form-header {
-  font-family: 'Montserrat', sans-serif;
-  color: #4caf50;
-}
-
-#submit-button {
-  background-color: #4caf50;
-  font-family: 'Roboto Slab', serif;
-  font-size: larger;
-}
-
-
-.form-img-div {
-  text-align: center;
-}
-
-.form-img {
-  position: relative;
-  width: 6%;
-  height: 6%;
-  margin-top: 1%;
-  
-
-.container {
-  margin-top: 35pt;
-}
-
-.waves-effect {
-  margin-left: 15pt;
-
-}
