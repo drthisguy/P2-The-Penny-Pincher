@@ -145,11 +145,11 @@ currency[0].setSelectionRange(cursorPosition, cursorPosition);
 
 
 // add new item to budget
-$("#add-btn").on("click", async (e) => {
-e.preventDefault();
+$("#add-btn").on("click", async () => {
+
   //gather any data that may be needed
    const user = await ItemCtrl.getUser();
-   user.itemId = editId.id;
+   user.itemId = null;
   
    ui.dbWrite(user, ItemCtrl.newItem);
 

@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
       },
       category: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         references: {
             model: "Categories",
             key: "category"
