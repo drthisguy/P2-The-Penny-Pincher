@@ -1,4 +1,180 @@
-form.signup,
+body {
+   background-color: #ffe57f;
+   margin: 0;
+}
+
+/* form.signup,
 form.login {
   margin-top: 50px;
+} */
+
+#nav-mobile {
+  text-align: right;
 }
+
+
+.brand-logo {
+  font-family: 'Sacramento', cursive;
+  padding-left: 1em;
+}
+
+.card-title {
+  font-size: xx-large;
+}
+
+
+/*******************
+ landing page 
+ ******************/
+.container-intro{
+  position: relative;
+  text-align: center;
+  background-color: #f8f3e2;
+  width: 100%;
+}
+
+#pig-intro {
+  position: relative;
+  width: 20%;
+  height: 20%;
+  margin-right: 20%;
+  /* margin-bottom: -1em; */
+}
+
+#logo-intro {
+  position: absolute;
+  top: 67%;
+  left: 15%;
+}
+
+.intro-subtitle {
+  position: absolute;
+  margin-top: 7%;
+  margin-left: 60%;
+  color: black;
+  font-size: x-large;
+  font-family: 'Roboto Slab', serif;
+}
+
+
+.form {
+  background-color: whitesmoke;
+  margin-top: 2em;
+  padding: 2em;
+  border-width: 2%;
+  border-color: #f8f3e2;
+  border-style: solid;
+}
+
+
+
+
+
+/* .container-items {
+  background-color: yellowgreen;
+  height: 500px; 
+} */
+
+h2 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+
+/******************* 
+log in sign in pages
+ *******************/
+#form-header {
+  font-family: 'Montserrat', sans-serif;
+  color: #4caf50;
+}
+
+.form-img-div {
+  text-align: center;
+}
+
+.form-img {
+  position: relative;
+  width: 6%;
+  height: 6%;
+  margin-top: 1%;
+}
+
+#submit-button {
+  background-color: #4caf50;
+  font-family: 'Roboto Slab', serif;
+  font-size: larger;
+}
+
+/*************** 
+Table page
+ **************/
+
+.container {
+  margin-top: 35pt;
+}
+
+.waves-effect {
+  margin-left: 15pt;
+}
+
+.top {
+  height: 40vh;
+  background-color: #f8f3e2;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  left: -0%;
+  width: auto;
+  
+}
+
+.wrapper {
+  width: 10px;
+  float: right;  
+}
+
+.chart-wrapper {
+  width: 300px;
+  height: 300px;  
+}
+
+.ctrl-btn {
+  margin-top: 10pt;
+}
+.budget {
+  position: absolute;
+  width: 350px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  font-size: bold;
+  opacity: 100%;
+}
+
+.budget__title {
+  font-size: 18px;
+  text-align: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.budget__value {
+  font-weight: 300;
+  font-size: 46px;
+  text-align: center;
+  margin-bottom: 25px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+#add-new-div {
+  background-color: #f8f3e2;
+}
+
+.add__description { width: 400px;}
+.add__value { width: 100px;}

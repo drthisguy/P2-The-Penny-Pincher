@@ -1,0 +1,145 @@
+    
+      <div class="container">
+        <div class="row">
+            <div class="col s12">
+              <div class="card N/A transparent hoverable editor">
+                <div class="card-content black-text">
+                  <span class="card-title">Add New Item</span>
+                  <form class="add">
+                 
+                    <form class="col s12">
+                        <div class="input-field col s6">
+                          <input id="name-field" type="text" class="validate">
+                          <label for="add-name">Name:</label>
+                        </div>
+                        <div class="input-field col s6">
+                          <input id="amount-field" type="text" class="validate">
+                          <label for="currency">Amount:</label>
+                        </div>
+
+
+                  <div class="row">
+                    
+                      <div class="col s3">
+                      <div class="input-field">
+                        <input id="category-field" type="text" class="validate ctrl-btn">
+                        <label for="category">Category</label>
+                        <span class="helper-text" data-error="wrong" data-success="ready"></span>
+                      </div>
+                      </div>
+                    
+                  
+                    <div class="col s3">
+                      <div class="input-field">
+                        <input id="priority-field" type="text" class="validate ctrl-btn">
+                        <label for="priority">Priority</label>
+                        <span class="helper-text" data-error="wrong" data-success="ready"></span>
+                      </div>
+                    </div>
+                  </div>
+            
+                  
+                
+
+                  <div class="row">
+
+                  <div class="col s3 ">
+                  <!-- Dropdown Trigger -->
+                  <a class='dropdown-trigger btn' href='#' data-target='categories'>Categories</a>
+                  
+                  <!-- Dropdown Structure -->
+                  <ul id='categories' class='dropdown-content'>
+                  
+                    {{#each categories}}
+                  
+                    <li>
+                      <a href="#!" class="cat">{{this.dataValues.category}}</a>
+                    </li>
+                    <li class="divider" tabindex="-1"></li>
+                  
+                    {{/each}}
+                  
+                  </ul>
+                  </div>
+                  <div class="col s3 ">
+                  <!-- Dropdown Trigger -->
+                  <a class='dropdown-trigger btn' href='#' data-target='priority'>Priority</a>
+                  
+                  <!-- Dropdown Structure -->
+                  <ul id='priority' class='dropdown-content'>
+                    <li><a class="pri" href="#!">High</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <li><a class="pri" href="#!">Medium</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <li><a class="pri" href="#!">Low</a></li>
+                    <li class="divider" tabindex="-1"></li>           
+                  </ul>
+                </div>
+                <button id="add-btn" class="btn waves-effect waves-light btn-large #000000 black right" type="submit" name="add-item">Add
+                  <i class="material-icons right">send</i>
+                 </button>
+               </div>
+                
+              <div class="row">
+                  <button id="cancel-btn" class="btn waves-effect waves-light btn-large grey darken-1 right" name="cancel-edit">Cancel
+                  <i class="material-icons left">backspace</i>
+                <button id="update-btn" class="btn waves-effect waves-light btn-large orange darken-1 right" name="update-item">Update
+                  <i class="material-icons left">sync</i>
+                <button id="delete-btn" class="btn waves-effect waves-light btn-large red darken-1 right" name="delete-item">Delete
+                  <i class="material-icons left">delete_forever</i>
+                </div>
+                
+                </form>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+        </div>
+
+        <div class="container table">
+          <table id="table" class="striped responsive-table hover row-border">
+            <thead>
+              <span><data value = '5'></data></span>
+              <tr>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Priority</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Edit</th>
+              </tr>
+            </thead>
+    
+            <tbody>
+
+                 {{#each expenses}}
+              
+                   <tr>
+                      <td>{{this.name}}</td>
+                      <td>{{this.category}}</td>
+                      <td>{{this.priority}}</td>
+                      <td>{{this.createdAt}}</td>
+                      <td>${{this.amount}}</td> 
+                      <td><a href="#anchor-edit">
+                      <i data-id={{this.id}} class="small material-icons edit right">edit</i></a></td>
+                  </tr>
+
+                 {{/each}}
+              
+            </tbody>
+            <tfoot>
+              <tr>
+                  <th>Name</th>
+                  <th>Category</th>
+                  <th>Priority</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Edit</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+    

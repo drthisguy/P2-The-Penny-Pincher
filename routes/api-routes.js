@@ -30,11 +30,82 @@ module.exports = function(app) {
       });
   });
 
+  //POST route for new budget item
+  app.post("/api/expenses", (req, res) => {
+    db.Expense.create({
+      user_id: req.body.user_id,
+      name: req.body.name,
+      category: req.body.category,
+      priority: req.body.priority,
+      amount: req.body.amount
+    }).then( response => res.json(response))
+      .catch(err => {res.status(501).json(err);});
+  });
+
+  // PUT route for updating budget items
+  app.put("/api/expenses", (req, res) => {
+
+    db.Expense.update({
+      user_id: req.body.user_id,
+      name: req.body.name,
+      category: req.body.category,
+      priority: req.body.priority,
+      amount: req.body.amount
+    }, {
+      where: {
+        id: req.body.id
+      }
+    }).then( response => res.json(response))
+      // .catch(err => {res.status(501).json(err);});
+      .catch(err => console.log(err));
+  });
+
+ // Route to remove an item 
+ app.delete("/api/expenses/:id", (req, res) => {
+    
+  db.Expense.destroy({
+    where: {
+      id: req.body.itemId.id
+    }}).then( data => {        
+
+      res.json(data);
+    })
+});
+
   // Route for logging user out
   app.get("/logout", function(req, res) {
+
     req.logout();
     res.redirect("/");
+    
   });
+
+  // Route to get all items for a user
+  app.get("/api/expenses", function(req, res) {
+    db.Expense.findAll({
+      where: {
+        user_id: req.user.id
+      }}).then( data => {
+
+        res.json(data);
+      })
+  });
+
+  // Route to get item by id
+  app.get("/api/expenses/:id", (req, res) => {
+    db.Expense.findOne({
+      where: {
+        id: req.params.id
+      }}).then( data => {        
+
+        res.json(data);
+      })
+  });
+
+ 
+  
+
+
 
   // Route for getting some data about our user to be used client side
   app.get("/api/user_data", function(req, res) {

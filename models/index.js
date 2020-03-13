@@ -5,7 +5,7 @@ var path      = require('path');
 var Sequelize = require('sequelize');
 var basename  = path.basename(module.filename);
 var env       = process.env.NODE_ENV || 'development';
-var config    = require(__dirname + '/../config/config.json')[env];
+var config    = require(__dirname + '/../config/config.js')[env];
 var db        = {};
 
 if (config.use_env_variable) {
@@ -28,9 +28,15 @@ Object.keys(db).forEach(function(modelName) {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
+  console.log(db);
 });
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+
+//associate the named table from categories with the expenses table instead of the ID#.
+db.Expense.belongsTo(db.Category, { targetKey: 'category', foreignKey: 'category' });
+
 
 module.exports = db;

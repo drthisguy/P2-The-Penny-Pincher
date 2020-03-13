@@ -2,37 +2,78 @@
 <html lang="en">
 
 <head>
-  <title>Passport Authentication</title>
+  <title>Penny Pincher</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/img/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/img/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/img/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/img/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/img/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/img/favicon/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Vendor Stylesheets -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lobster|Montserrat|Pacifico|Sacramento|Viaoda+Libre&display=swap" rel="stylesheet">
+
+  <!-- Theme Stylesheets -->
   <link href="stylesheets/style.css" rel="stylesheet">
+    
+
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper green">
+        <a href="/" class="brand-logo">Penny Pincher</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="signup">Sign Up</a></li>
+          <li><a href="login">Log In</a></li>
+          <!-- <li><a href="collapsible.html">JavaScript</a></li> -->
+        </ul>
       </div>
-    </div>
-  </nav>
-  <div class="container">
+    </nav>
+  </div>
+<div class="form-img-div">
+  <img class="form-img animated bounceInRight" src="img\bank-clipart-two-coins.png">
+</div>
+  <div class="container form animated fadeIn slower z-depth-4">
     <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Login Form</h2>
+      <div class="col s12">
+        <h2 id="form-header">Log In</h2>
         <form class="login">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email-input" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="password-input" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
           </div>
-          <button type="submit" class="btn btn-default">Login</button>
+          <button type="submit" class="btn btn-large" id="submit-button">Login</button>
         </form>
         <br />
-        <p>Or sign up <a href="/">here</a></p>
+        <p>New to Penny Pincher? <a href="signup">Get Started</a></p>
       </div>
     </div>
   </div>
