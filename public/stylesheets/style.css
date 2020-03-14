@@ -3,11 +3,6 @@ body {
    margin: 0;
 }
 
-/* form.signup,
-form.login {
-  margin-top: 50px;
-} */
-
 #nav-mobile {
   text-align: right;
 }
@@ -15,11 +10,7 @@ form.login {
 
 .brand-logo {
   font-family: 'Sacramento', cursive;
-  padding-left: 1em;
-}
-
-.card-title {
-  font-size: xx-large;
+  padding-left: 5%;
 }
 
 
@@ -65,15 +56,6 @@ form.login {
   border-color: #f8f3e2;
   border-style: solid;
 }
-
-
-
-
-
-/* .container-items {
-  background-color: yellowgreen;
-  height: 500px; 
-} */
 
 h2 {
   text-align: center;
@@ -123,13 +105,19 @@ Table page
 
 .top {
   height: 40vh;
-  background-color: #f8f3e2;
+  background-color: whitesmoke;
   background-size: cover;
   background-position: center;
   position: relative;
   left: -0%;
   width: auto;
-  
+  border-color: #4caf50;
+  border-style: solid;
+  border-width: medium;
+}
+
+.card-title {
+  font-size: xx-large;
 }
 
 .wrapper {
@@ -161,6 +149,8 @@ Table page
   text-align: center;
   margin-bottom: 10px;
   font-weight: bold;
+  color: black;
+  font-family: 'Roboto Slab', serif;
 }
 
 .budget__value {
@@ -173,7 +163,21 @@ Table page
 }
 
 #add-new-div {
-  background-color: #f8f3e2;
+  background-color: #f3f0e6;
+}
+
+#table-div {
+  padding-top: 10%;
+}
+
+.dropdown-trigger {
+  background-color: #4caf50;
+}
+
+#test {
+  border-color: #4caf50;
+  border-style: solid;
+  border-width: medium;
 }
 
 .add__description { width: 400px;}
