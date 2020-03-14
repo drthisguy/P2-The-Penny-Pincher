@@ -15,7 +15,9 @@ $(document).ready(function() {
   //set global variable in event of a delete
   let editId;
   
-  
+  function reloader() {
+    location.reload();
+   }
 
   //set default category
   let catInput = $("#category-field");
@@ -67,17 +69,6 @@ $("#cancel-btn").on("click", (e) => {
   ui.clearInputs();
 })
 
-// //Update btn
-// $("#update-btn").on("click", () => {
-  
-//   ui.hideEditState();
-// })
-
-// //Delete btn
-// $("#delete-btn").on("click", () => {
-  
-//   ItemCtrl.deletePost
-// })
 
 //The rest of this code, formats the "Amount" value for currency.  
 $("#amount-field").on({
@@ -145,48 +136,51 @@ currency[0].setSelectionRange(cursorPosition, cursorPosition);
 
 
 // add new item to budget
-$("#add-btn").on("click", async () => {
+$("#add-btn").on("click", async (e) => {
+e.preventDefault();
 
   //gather any data that may be needed
    const user = await ItemCtrl.getUser();
    user.itemId = null;
   
    ui.dbWrite(user, ItemCtrl.newItem);
-
+   setTimeout(() => reloader(), 650);
 });
 
 // update item in budget
-$("#update-btn").on("click", async () => {
+$("#update-btn").on("click", async (e) => {
+e.preventDefault();
 
   //gather any data that may be needed
    const user = await ItemCtrl.getUser();
    user.itemId = editId.id;
   
    ui.dbWrite(user, ItemCtrl.updateItem);
+   setTimeout(() => reloader(), 650);
 });
 
 // delete item in budget
 $("#delete-btn").on("click", async (e) => {
-
   e.preventDefault();
-  const user = await ItemCtrl.getUser();
-  user.itemId = editId
+  // const user = await ItemCtrl.getUser();
+  itemId = editId
   
-  ItemCtrl.deleteItem(user);
+  ItemCtrl.deleteItem(itemId);
+  setTimeout(() => reloader(), 650);
 });
 
 
 const ItemCtrl = (function(){ 
   return {
     
-    getItems: () => $.get("/api/expenses").then( data => data),
+    getItems: () => $.get("/api/expenses").then(data => data),
 
     getUser: () => $.get("/api/user_data").then(data => data),
 
-    getItemById: id => $.get(`/api/expenses/${id}`).then( data => data),
-
-    newItem: newItem => $.post("/api/expenses", newItem).then(data => data),
+    getItemById: id => $.get(`/api/expenses/${id}`).then(data => data),
     
+    newItem: newItem => $.post("/api/expenses", newItem).then(data => data),
+
     updateItem: chngdItem => {
       $.ajax({
         method: "PUT",
