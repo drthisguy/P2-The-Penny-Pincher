@@ -70,69 +70,15 @@ $("#cancel-btn").on("click", (e) => {
 })
 
 
-//The rest of this code, formats the "Amount" value for currency.  
+//listen to amount input field for formatting.  
 $("#amount-field").on({
   keyup: function() {
-    formatCurrency($(this));
+    ui.formatCurrency($(this));
   },
   blur: function() { 
-    formatCurrency($(this), "blurred");
+    ui.formatCurrency($(this), "blurred");
   }
 });
-
-//format number with comas. 
-function formatNumber(number) {
-return number.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-//Adds $ to value, validates decimal places
-function formatCurrency(currency, ...args) {
-
-let amount = currency.val();
-
-if (amount === "") { 
-  return;
- }
-const startLength = amount.length;
-
-//get cursor position 
-let cursorPosition = currency.prop("selectionStart");
-  
-//if there's a decimal
-if (amount.indexOf(".") >= 0) {
-
-  
-  const decimalLocation = amount.indexOf(".");
-
-  // split number by decimal point
-  let wholeNum = amount.substring(0, decimalLocation);
-  let decimal = amount.substring(decimalLocation);
-
-  //format both sides
-  wholeNum = formatNumber(wholeNum);
-  decimal = formatNumber(decimal);
-  // Limit decimal digits to 2
-  decimal = decimal.substring(0, 2);
-
-  // Amount string with decimal
-  amount = `$${wholeNum}.${decimal}`;
-
-} else {
-  amount = formatNumber(amount);
-  amount = `$${amount}`;
-
-  // ensure decimal + 2 zeros after whole number
-  amount = arguments.length > 1 ? `${amount}.00` : amount;
-}
-
-// return string to field
-currency.val(amount);
-
-// restore cursor
-const finalLength = amount.length;
-cursorPosition = finalLength - startLength + cursorPosition;
-currency[0].setSelectionRange(cursorPosition, cursorPosition);
-}
 
 
 // add new item to budget
