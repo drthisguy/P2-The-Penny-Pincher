@@ -78,16 +78,16 @@
             <thead><th></th></thead>
             <tbody>
               <tr>
-                  <td>Total Income:</td>
-                  <td><div class="expense"></div></td>
+                  <td>Total Income: <div class="income right inline"></div></td>
+                  <td></td>
               </tr>
               <t>
-                  <td>Total Expenses:</td>
-                  <td><div class="income"></div></td>
+                  <td>Total Expenses: <div class="expense right inline"></div></td>
+                  <td></td>
               </tr>
               <t>
-                  <td>Balance:</td>
-                  <td><div class="balance"></div></td>
+                  <td>Balance: <div class="balance"></div></td>
+                  <td></td>
               </tr>
               <t>   
                   <td>Discretionary Spending:</td>
@@ -105,26 +105,7 @@
         </div>
         {{!-- Donut Chart --}}
         <div class="col s2">
-            <form action="#">
-    <p>
-      <label>
-        <input class="exp-view left" name="group1" type="radio" checked />
-        <span>Expense</span>
-      </label>
-    </p>
-    <p>
-      <label>
-        <input class="pri-view left" name="group1" type="radio" />
-        <span>Priority</span>
-      </label>
-    </p>
-    <p>
-      <label>
-        <input class="cat-view left" name="group1" type="radio"/>
-        <span>Category</span>
-      </label>
-    </p>
-    </form>
+        
         </div>
         <div class="col s6 right">
             <div id="chartContainer" style="width: 100%;"></div>

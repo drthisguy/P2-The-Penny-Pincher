@@ -49,26 +49,16 @@ $(document).ready(function() {
     }
   })();
 
-
+  //draw donut chart for expenses
    (async function budgetLoader() {
       const budget = await ItemCtrl.getItems();
 
       ui.drawExpenseChart(budget);
 
-      //listen for change of chart type
+      ui.paintBudget(budget);
 
-      $(".change-view").on("click", () => {
-        
-      if ($("exp-view").is("checked")) {
-        ui.drawExpenseChart(budget);
-      } else if ($("pri-view").is("checked")) {
-        ui.drawPrioriityChart(budget);
-      } else {
-        ui.drawCategoryChart(budget);
-      }
-   })
-  }
-   )();
+  })();
+
   //set default category
   let catInput = $("#category-field");
   catInput.siblings("label").toggleClass("active", true );
