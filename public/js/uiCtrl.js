@@ -73,6 +73,35 @@ class UICtrl  {
       $(this.priority).val("Medium");
     }
 
+    drawChart(items) {
+      const dataPoints = [];
+
+      items.forEach( item => {
+        let cost = parseFloat(item.amount),
+
+        point = { y: cost, label: item.name }
+        dataPoints.push(point);
+      });
+console.log(dataPoints);
+      const chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title:{
+          text: "Budget Items",
+          horizontalAlign: "left"
+        },
+        data: [{
+          type: "doughnut",
+          startAngle: 60,
+          innerRadius: 40,
+          indexLabelFontSize: 17,
+          indexLabel: "{label} - #percent%",
+          toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+          dataPoints: dataPoints
+        }]
+      });
+      chart.render();
+    }
+
     formatAmount(number) {
       return number.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     }
@@ -93,7 +122,6 @@ class UICtrl  {
       //if there's a decimal
       if (amount.indexOf(".") >= 0) {
 
-        
         const decimalLocation = amount.indexOf(".");
 
         // split number by decimal point

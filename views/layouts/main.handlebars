@@ -34,6 +34,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 
@@ -67,6 +68,7 @@
             <div class="budget__title">
                 Monthly Budget for <span class="date">Month</span>:
                 <div class="row">
+
                     <div class="col s6">
            
 
@@ -100,14 +102,20 @@
 
             </div>
 
-            <div class="row">
+            
                 <div class="col s6">
 
 
                     
                 </div>
                 <div class="col s6"></div>
-            </div>
+            
+
+        </div>
+        {{!-- Donut Chart --}}
+        <div class="col s6">
+
+            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 
         </div>
     </div>

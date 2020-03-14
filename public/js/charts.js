@@ -1,42 +1,28 @@
+module.exports = function () {
 
-let ctx = document.getElementById('myChart').getContext('2d');
-let labels = ['i', 'am', 'awesome'];
-let colorHex = ['blue', 'green', 'red']
-
-let myChart = new Chart(ctx, {
-  type: 'pie',
-  data: {
-    datasets: [{
-      data: [30,10,40,20],
-      backgroundColor: colorHex
-    }],
-    labels: labels
-  },
-  options: {
-    responsive: true,
-    legend: {
-      position: 'bottom'
+  var chart = new CanvasJS.Chart("chartContainer", {
+    animationEnabled: true,
+    title:{
+      text: "Email Categories",
+      horizontalAlign: "left"
     },
-    plugins: {
-      datalabels: {
-        color: '#fff',
-        anchor: 'end',
-        align: 'start',
-        offset: -10,
-        borderWidth: 2,
-        borderColor: '#fff',
-        borderRadious: 25,
-        backgroundColor: (context) => {
-          return context.dataset.backgroundColor;
-        },
-        font: {
-          weight: 'bold',
-          size: '10'
-        },
-        formatter: (value) => {
-          return value + '%';
-        }
-      }
-    }
+    data: [{
+      type: "doughnut",
+      startAngle: 60,
+      //innerRadius: 60,
+      indexLabelFontSize: 17,
+      indexLabel: "{label} - #percent%",
+      toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+      dataPoints: [
+        { y: 67, label: "Inbox" },
+        { y: 28, label: "Archives" },
+        { y: 10, label: "Labels" },
+        { y: 7, label: "Drafts"},
+        { y: 15, label: "Trash"},
+        { y: 6, label: "Spam"}
+      ]
+    }]
+  });
+  chart.render();
+  
   }
-})
