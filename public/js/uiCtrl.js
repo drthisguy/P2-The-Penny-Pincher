@@ -76,6 +76,8 @@ class UICtrl  {
     drawExpenseChart(items) {
       const dataPoints = [];
 
+      items = items.filter(x => x.category !== "Income");
+      
       items.forEach( item => {
         let cost = parseFloat(item.amount),
 

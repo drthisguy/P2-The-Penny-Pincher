@@ -4,7 +4,10 @@ $(document).ready(function() {
 
   
   //init datatables
-  $("#table").DataTable({ responsive: true });
+  $("#table").DataTable({ 
+    responsive: true,
+    "pageLength": 25
+  });
   
   //init materialize 
   M.AutoInit();
