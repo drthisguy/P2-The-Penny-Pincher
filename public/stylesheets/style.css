@@ -95,7 +95,7 @@ log in sign in pages
 Table page
  **************/
 
-.container {
+.marg-t {
   margin-top: 35pt;
 }
 
@@ -118,6 +118,9 @@ Table page
 
 .card-title {
   font-size: xx-large;
+}
+.inline {
+  display: inline-block
 }
 
 .wrapper {

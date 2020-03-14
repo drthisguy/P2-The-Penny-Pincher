@@ -19,6 +19,46 @@ $(document).ready(function() {
     location.reload();
    }
 
+
+
+   //mini module for DB opts
+   const ItemCtrl = (function(){ 
+    return {
+      
+      getItems: () => $.get("/api/expenses").then(data => data),
+  
+      getUser: () => $.get("/api/user_data").then(data => data),
+  
+      getItemById: id => $.get(`/api/expenses/${id}`).then(data => data),
+      
+      newItem: newItem => $.post("/api/expenses", newItem).then(data => data),
+  
+      updateItem: chngdItem => {
+        $.ajax({
+          method: "PUT",
+          url: "/api/expenses",
+          data: chngdItem
+        }).then((data => data))},
+  
+      deleteItem: rmItem => {
+        $.ajax({
+          method: "DELETE",
+          url: `/api/expenses/${rmItem.id}`,
+          data: rmItem
+        }).then((data => data))},
+    }
+  })();
+
+  //draw donut chart for expenses
+   (async function budgetLoader() {
+      const budget = await ItemCtrl.getItems();
+
+      ui.drawExpenseChart(budget);
+
+      ui.paintBudget(budget);
+
+  })();
+
   //set default category
   let catInput = $("#category-field");
   catInput.siblings("label").toggleClass("active", true );
@@ -116,31 +156,6 @@ $("#delete-btn").on("click", async (e) => {
 });
 
 
-const ItemCtrl = (function(){ 
-  return {
-    
-    getItems: () => $.get("/api/expenses").then(data => data),
 
-    getUser: () => $.get("/api/user_data").then(data => data),
-
-    getItemById: id => $.get(`/api/expenses/${id}`).then(data => data),
-    
-    newItem: newItem => $.post("/api/expenses", newItem).then(data => data),
-
-    updateItem: chngdItem => {
-      $.ajax({
-        method: "PUT",
-        url: "/api/expenses",
-        data: chngdItem
-      }).then((data => data))},
-
-    deleteItem: rmItem => {
-      $.ajax({
-        method: "DELETE",
-        url: `/api/expenses/${rmItem.id}`,
-        data: rmItem
-      }).then((data => data))},
-  }
-})();
 
 })

@@ -73,6 +73,56 @@ class UICtrl  {
       $(this.priority).val("Medium");
     }
 
+    drawExpenseChart(items) {
+      const dataPoints = [];
+
+      items.forEach( item => {
+        let cost = parseFloat(item.amount),
+
+        point = { y: cost, label: item.name }
+        dataPoints.push(point);
+      });
+      const chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        height:290,
+        backgroundColor: "#f5f5f5",
+        title:{
+          text: "Summary of Expenses",
+          horizontalAlign: "right",
+          fontSize: 20,
+        },
+        data: [{
+          type: "doughnut",
+          startAngle: 60,
+          innerRadius: 60,
+          indexLabelFontSize: 17,
+          indexLabel: "{label} - #percent%",
+          toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+          dataPoints: dataPoints
+        }]
+      });
+      chart.render();
+    }
+
+    paintBudget(budget) {
+
+      //..lol
+      const income = budget.map(x => new Object({category: x.category, amount: x.amount})).filter(x => x.category === "Income").map(x => x.amount).reduce((a, b) => parseFloat(a) + parseFloat(b), 0),  
+       expenses = budget.map(x => new Object({category: x.category, amount: x.amount})).filter(x => x.category !== "Income").map(x => x.amount).reduce((a, b) => parseFloat(a) + parseFloat(b), 0),
+       discretion = budget.map(x => new Object({priority: x.priority, amount: x.amount})).filter(x => x.priority == "Low").map(x => x.amount).reduce((a, b) => parseFloat(a) + parseFloat(b), 0),
+       balance = income - expenses,
+       percentage = Math.round((discretion/expenses) * 100);
+
+     
+       $(".income").append(income)
+       $(".expense").append(expenses)
+       $(".balance").append(balance)
+       $(".dis-amount").append(discretion)
+       $(".dis-percent").append(`${percentage}%`)
+
+    }
+
+    
     formatAmount(number) {
       return number.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     }
@@ -93,7 +143,6 @@ class UICtrl  {
       //if there's a decimal
       if (amount.indexOf(".") >= 0) {
 
-        
         const decimalLocation = amount.indexOf(".");
 
         // split number by decimal point

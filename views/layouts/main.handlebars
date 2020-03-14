@@ -34,6 +34,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 
@@ -59,7 +60,7 @@
         <img class="form-img animated bounceInRight" src="img\bank-clipart-two-coins.png">
     </div>
     
-    <div class="container hoverable editor">
+    <div class="container marg-t hoverable editor">
 
         <div class="top">
 
@@ -67,51 +68,49 @@
             <div class="budget__title">
                 Monthly Budget for <span class="date">Month</span>:
                 <div class="row">
-                    <div class="col s6">
+
+                    <div class="col s4">
            
 
                     
-              <div class="container table">
-          <table class="striped responsive-table">
+              <div >
+          <table >
             <thead><th></th></thead>
             <tbody>
               <tr>
-                  <td>Total Income:</td>
-                  <td><div class="expense"></div></td>
+                  <td class="income right">Total Income:&nbsp;&nbsp;&nbsp;&nbsp; $</td>
+                  <td></td>
               </tr>
               <t>
-                  <td>Total Expenses:</td>
-                  <td><div class="income"></div></td>
+                  <td class="expense right">Total Expenses:&nbsp;&nbsp;&nbsp;&nbsp; $</td>
+                  <td></td>
               </tr>
               <t>
-                  <td>Balance:</td>
-                  <td><div class="balance"></div></td>
+                  <td class="balance right">Balance:&nbsp;&nbsp;&nbsp;&nbsp; $</td>
+                  <td></td>
               </tr>
               <t>   
-                  <td>Discretionary Spending:</td>
-                  <td><div class="dis-amount"></div></td>
-                  <td><div class="dis-percent"></div></td>
+                  <td class="dis-amount right">Discretionary Spending:&nbsp;&nbsp;&nbsp;&nbsp;   $</td>
+                  <td class="dis-percent right">Percent Discretionary:&nbsp;&nbsp;&nbsp;&nbsp;   </td>
+                 
+                  <td></div></td>
               </tr>                
             </tbody>
             </table>
             
                  <a id="anchor-edit"></a> <!-- anchor for edit state.-->
             
-
             </div>
-
-            <div class="row">
-                <div class="col s6">
-
-
-                    
-                </div>
-                <div class="col s6"></div>
+        </div>
+        {{!-- Donut Chart --}}
+        <div class="col s2">
+        
+        </div>
+        <div class="col s6 right">
+            <div id="chartContainer" style="width: 100%;"></div>
             </div>
-
         </div>
     </div>
-
 </div>
 
     {{{ body }}}
