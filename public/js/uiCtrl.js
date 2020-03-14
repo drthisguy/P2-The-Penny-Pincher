@@ -72,4 +72,59 @@ class UICtrl  {
       $(this.category).val("Miscellaneous");
       $(this.priority).val("Medium");
     }
+
+    formatAmount(number) {
+      return number.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    }
+
+    //formats the "Amount" value for currency.
+    formatCurrency(currency, ...arg) {
+            
+      let amount = currency.val();
+
+      if (amount === "") { 
+        return;
+      }
+      const startLength = amount.length;
+
+      //get cursor position 
+      let cursorPosition = currency.prop("selectionStart");
+        
+      //if there's a decimal
+      if (amount.indexOf(".") >= 0) {
+
+        
+        const decimalLocation = amount.indexOf(".");
+
+        // split number by decimal point
+        let wholeNum = amount.substring(0, decimalLocation);
+        let decimal = amount.substring(decimalLocation);
+
+        //format both sides
+        wholeNum = this.formatAmount(wholeNum);
+        decimal = this.formatAmount(decimal);
+        // Limit decimal digits to 2
+        decimal = decimal.substring(0, 2);
+
+        // Amount string with decimal
+        amount = `$${wholeNum}.${decimal}`;
+
+      } else {
+        amount = this.formatAmount(amount);
+        amount = `$${amount}`;
+
+        // ensure decimal + 2 zeros after whole number
+        amount = arguments.length > 1 ? `${amount}.00` : amount;
+      }
+
+      // return string to field
+      currency.val(amount);
+
+      // restore cursor
+      const finalLength = amount.length;
+      cursorPosition = finalLength - startLength + cursorPosition;
+      currency[0].setSelectionRange(cursorPosition, cursorPosition);
+    }
+
+          
 }
