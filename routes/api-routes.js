@@ -35,11 +35,11 @@ module.exports = function(app) {
     db.Expense.create({
       user_id: req.body.user_id,
       name: req.body.name,
-      category: null,
+      category: req.body.category,
       priority: req.body.priority,
       amount: req.body.amount
     }).then( response => res.json(response))
-      .catch(err => res.status(501).json(err));
+      .catch(err => {if (err) console.log(err)});
   });
 
   // PUT route for updating budget items
@@ -57,7 +57,7 @@ module.exports = function(app) {
       }
     }).then( response => res.json(response))
       // .catch(err => {res.status(501).json(err);});
-      .catch(err => res.status(501).json(err));
+      .catch(err => console.log(err));
   });
 
  // Route to remove an item 
@@ -65,7 +65,7 @@ module.exports = function(app) {
     
   db.Expense.destroy({
     where: {
-      id: req.body.itemId.id
+      id: req.body.id
     }}).then( data => {        
 
       res.json(data);

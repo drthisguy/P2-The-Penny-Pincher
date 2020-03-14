@@ -10,7 +10,7 @@ function formatTimeStamps(data) {
 
       data.forEach( time => {
 
-        time.createdAt = moment(time).format("ddd, MMM Do, h:ma");
+        time.createdAt = moment(time).format("ddd, MMM Do, h:mma");
     }) 
     return data;
  }
@@ -42,23 +42,16 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   app.get("/members", isAuthenticated, function(req, res) {
     
-    db.Category.findAll( {} ).then( categories => {
+    db.Expense.findAll({
+      raw: true,
+      where: {
+        user_id: req.user.id
+      } }).then( dbResponse => {      
+      console.log("expenses", dbResponse)
+        
+        dbResponse = formatTimeStamps(dbResponse);
 
-      db.Expense.findAll({
-        raw: true,
-        where: {
-          user_id: req.user.id
-        } }).then( expenses => {      
-          
-          expenses = formatTimeStamps(expenses);
-
-          res.render("index", handler = {
-            categories: categories,
-            expenses: expenses
-          })
-
-        })
-    })
+        res.render("index", {expenses: dbResponse})
+      }).catch( err =>  {if (err) console.log(err)})
   });
-
 };

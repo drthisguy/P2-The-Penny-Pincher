@@ -18,10 +18,7 @@ module.exports = function(sequelize, DataTypes) {
       category: {
         type: DataTypes.STRING,
         allowNull: true,
-        references: {
-            model: "Categories",
-            key: "category"
-        }
+        defaultValue: "Miscellaneous",
       },
       priority: {
         type: DataTypes.ENUM,

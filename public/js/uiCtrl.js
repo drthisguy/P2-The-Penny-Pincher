@@ -20,7 +20,7 @@ class UICtrl  {
           user_id: user.id,
           name:   $(this.name).val().trim(),
           amount: $(this.amount).val().replace(/[$,]/gi, ""),  //remove $ sign and commas,
-          category:$(this.category).val().trim(),
+          category: $(this.category).val().trim(),
           priority: $(this.priority).val().trim()
         }
         console.log("UICtrl -> dbWrite -> item", item)
