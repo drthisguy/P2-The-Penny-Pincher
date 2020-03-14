@@ -5,7 +5,6 @@
         <div class="card-content black-text">
           <span class="card-title">Add New Item</span>
           <form class="add">
-
             <form class="col s12">
               <div class="input-field col s6">
                 <input id="name-field" type="text" class="validate">
@@ -18,7 +17,6 @@
 
 
               <div class="row">
-
                 <div class="col s3">
                   <div class="input-field">
                     <input id="category-field" type="text" class="validate ctrl-btn">
@@ -37,11 +35,7 @@
                 </div>
               </div>
 
-
-
-
               <div class="row">
-
                 <div class="col s3 ">
                   <!-- Dropdown Trigger -->
                   <a class='dropdown-trigger btn' href='#' data-target='categories'>Categories</a>
@@ -101,7 +95,11 @@
 </div>
 </div>
 
-<div class="container table">
+
+  
+
+
+<div class="container table" id="table-div">
   <table id="table" class="striped responsive-table hover row-border">
     <thead>
       <span><data value='5'></data></span>
@@ -119,7 +117,7 @@
 
       {{#each expenses}}
 
-      <tr>
+      <tr id="test">
         <td>{{this.name}}</td>
         <td>{{this.category}}</td>
         <td>{{this.priority}}</td>
