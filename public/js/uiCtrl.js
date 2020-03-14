@@ -110,14 +110,15 @@ class UICtrl  {
       const income = budget.map(x => new Object({category: x.category, amount: x.amount})).filter(x => x.category === "Income").map(x => x.amount).reduce((a, b) => parseFloat(a) + parseFloat(b), 0),  
        expenses = budget.map(x => new Object({category: x.category, amount: x.amount})).filter(x => x.category !== "Income").map(x => x.amount).reduce((a, b) => parseFloat(a) + parseFloat(b), 0),
        discretion = budget.map(x => new Object({priority: x.priority, amount: x.amount})).filter(x => x.priority == "Low").map(x => x.amount).reduce((a, b) => parseFloat(a) + parseFloat(b), 0),
-       balance = income - expenses;
+       balance = income - expenses,
+       percentage = Math.round((discretion/expenses) * 100);
 
      
        $(".income").append(income)
        $(".expense").append(expenses)
-       $(".balance").append(balances)
-       $(".dis-amount").append(balances)
-       $(".dis-percent").append(balances)
+       $(".balance").append(balance)
+       $(".dis-amount").append(discretion)
+       $(".dis-percent").append(`${percentage}%`)
 
     }
 
