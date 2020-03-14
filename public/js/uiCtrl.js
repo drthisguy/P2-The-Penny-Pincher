@@ -73,7 +73,7 @@ class UICtrl  {
       $(this.priority).val("Medium");
     }
 
-    drawChart(items) {
+    drawExpenseChart(items) {
       const dataPoints = [];
 
       items.forEach( item => {
@@ -82,17 +82,19 @@ class UICtrl  {
         point = { y: cost, label: item.name }
         dataPoints.push(point);
       });
-console.log(dataPoints);
       const chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
+        height:290,
+        backgroundColor: "#f5f5f5",
         title:{
-          text: "Budget Items",
-          horizontalAlign: "left"
+          text: "Summary of Expenses",
+          horizontalAlign: "right",
+          fontSize: 20,
         },
         data: [{
           type: "doughnut",
           startAngle: 60,
-          innerRadius: 40,
+          innerRadius: 60,
           indexLabelFontSize: 17,
           indexLabel: "{label} - #percent%",
           toolTipContent: "<b>{label}:</b> {y} (#percent%)",
@@ -102,6 +104,70 @@ console.log(dataPoints);
       chart.render();
     }
 
+    drawPriorityChart(items) {
+      const dataPoints = [];
+
+      items.forEach( item => {
+        let cost = parseFloat(item.amount),
+
+        point = { y: cost, label: item.priority }
+        dataPoints.push(point);
+      });
+      const chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        backgroundColor: "#f5f5f5",
+        height:290,
+        title:{
+          text: "Summary by Priority",
+          horizontalAlign: "right",
+          fontSize: 20,
+        },
+        data: [{
+          type: "doughnut",
+          startAngle: 60,
+          innerRadius: 60,
+          indexLabelFontSize: 17,
+          indexLabel: "{label} - #percent%",
+          toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+          dataPoints: dataPoints
+        }]
+      });
+      chart.render();
+    }
+
+    drawCategoryChart(items) {
+      const dataPoints = [];
+
+      items.forEach( item => {
+        let cost = parseFloat(item.category),
+
+        point = { y: cost, label: item.priority }
+        dataPoints.push(point);
+      });
+      const chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        backgroundColor: "#f5f5f5",
+        height:290,
+        title:{
+          text: "Summary by Category",
+          horizontalAlign: "right",
+          fontSize: 20,
+        },
+        data: [{
+          type: "doughnut",
+          startAngle: 60,
+          innerRadius: 60,
+          indexLabelFontSize: 17,
+          indexLabel: "{label} - #percent%",
+          toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+          dataPoints: dataPoints
+        }]
+      });
+      chart.render();
+    }
+
+
+    
     formatAmount(number) {
       return number.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     }

@@ -19,6 +19,8 @@ $(document).ready(function() {
     location.reload();
    }
 
+
+
    //mini module for DB opts
    const ItemCtrl = (function(){ 
     return {
@@ -50,10 +52,22 @@ $(document).ready(function() {
 
    (async function budgetLoader() {
       const budget = await ItemCtrl.getItems();
-      console.log("budgetLoader -> budget", budget)
 
-      ui.drawChart(budget);
-   }
+      ui.drawExpenseChart(budget);
+
+      //listen for change of chart type
+
+      $(".change-view").on("click", () => {
+        
+      if ($("exp-view").is("checked")) {
+        ui.drawExpenseChart(budget);
+      } else if ($("pri-view").is("checked")) {
+        ui.drawPrioriityChart(budget);
+      } else {
+        ui.drawCategoryChart(budget);
+      }
+   })
+  }
    )();
   //set default category
   let catInput = $("#category-field");
