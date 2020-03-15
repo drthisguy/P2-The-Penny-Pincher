@@ -64,5 +64,5 @@ https://www.robinwieruch.de/webpack-babel-setup-tutorial
 ## Issues & Contact
 
 We Hoped to use the babel webpack to transpile front end ES6 to pre 2015 js.  Delayed for now. 
-No other know issues.
+Time of day appears to be missreporting on expense items.
 See contact info of contributers with questions.
