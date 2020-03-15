@@ -1,12 +1,12 @@
 'use strict';
 
-var fs        = require('fs');
-var path      = require('path');
-var Sequelize = require('sequelize');
-var basename  = path.basename(module.filename);
-var env       = process.env.NODE_ENV || 'development';
-var config    = require(__dirname + '/../config/config.js')[env];
-var db        = {};
+const fs        = require('fs');
+const path      = require('path');
+const Sequelize = require('sequelize');
+const basename  = path.basename(module.filename);
+const env       = process.env.NODE_ENV || 'development';
+const config    = require(__dirname + '/../config/config.js')[env];
+const db        = {};
 
 if (config.use_env_variable) {
   var sequelize = new Sequelize(process.env[config.use_env_variable]);
@@ -33,15 +33,5 @@ Object.keys(db).forEach(function(modelName) {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-
-
-//associate the named table from categories with the expenses table instead of the ID#.
-// db.Expense.belongsTo(db.Category, { 
-  
-//   targetKey: 'category', 
-//   foreignKey: 'category',
-  
-//  })
-
 
 module.exports = db;

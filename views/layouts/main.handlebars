@@ -30,11 +30,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Bellota|Montserrat|Roboto+Slab|Sacramento|Viaoda+Libre&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Bellota|Montserrat|Roboto+Slab|Sacramento|Viaoda+Libre&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
 
@@ -54,12 +56,12 @@
             </div>
         </nav>
     </div>
-      
+
 
     <div class="form-img-div">
         <img class="form-img animated bounceInRight" src="img\bank-clipart-two-coins.png">
     </div>
-    
+
     <div class="container marg-t hoverable editor">
 
         <div class="top">
@@ -70,54 +72,58 @@
                 <div class="row">
 
                     <div class="col s4">
-           
 
-                    
-              <div >
-          <table >
-            <thead><th></th></thead>
-            <tbody>
-              <tr>
-                  <td class="income right">Total Income:&nbsp;&nbsp;&nbsp;&nbsp; $</td>
-                  <td></td>
-              </tr>
-              <t>
-                  <td class="expense right">Total Expenses:&nbsp;&nbsp;&nbsp;&nbsp; $</td>
-                  <td></td>
-              </tr>
-              <t>
-                  <td class="balance right">Balance:&nbsp;&nbsp;&nbsp;&nbsp; $</td>
-                  <td></td>
-              </tr>
-              <t>   
-                  <td class="dis-amount right">Discretionary Spending:&nbsp;&nbsp;&nbsp;&nbsp;   $</td>
-                  <td class="dis-percent right">Percent Discretionary:&nbsp;&nbsp;&nbsp;&nbsp;   </td>
-                 
-                  <td></div></td>
-              </tr>                
-            </tbody>
-            </table>
-            
-                 <a id="anchor-edit"></a> <!-- anchor for edit state.-->
-            
-            </div>
-        </div>
-        {{!-- Donut Chart --}}
-        <div class="col s2">
-        
-        </div>
-        <div class="col s6 right">
-            <div id="chartContainer" style="width: 100%;"></div>
+
+
+            <div>
+                <table>
+                    <thead>
+                        <th></th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="income right">Total Income:&nbsp;&nbsp;&nbsp;&nbsp; $</td>
+                            <td></td>
+                        </tr>
+                        <t>
+                            <td class="expense right">Total Expenses:&nbsp;&nbsp;&nbsp;&nbsp; $</td>
+                            <td></td>
+                            </tr>
+                            <t>
+                                <td class="balance right">Balance:&nbsp;&nbsp;&nbsp;&nbsp; $</td>
+                                <td></td>
+                                </tr>
+                                <t>
+                                    <td class="dis-amount right">Discretionary
+                                        Spending:&nbsp;&nbsp;&nbsp;&nbsp; $</td>
+                                    <td class="dis-percent right">Percent
+                                        Discretionary:&nbsp;&nbsp;&nbsp;&nbsp; </td>
+                
+                                    <td>
+                                        </div>
+                                    </td>
+                                    </tr>
+                    </tbody>
+                </table>
+
+                        <a id="anchor-edit"></a> <!-- anchor for edit state.-->
+
+                    </div>
+                </div>
+                {{!-- Donut Chart --}}
+                <div class="col s2">
+
+                </div>
+                <div class="col s6 right">
+                    <div id="chartContainer" style="width: 100%;"></div>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     {{{ body }}}
 
-
 </body>
-
-  <script src="/js/uiCtrl.js"></script>
-  <script src="/js/members.js"></script>
+<script src="/js/uiCtrl.js"></script>
+<script src="/js/members.js"></script>
 </html>
