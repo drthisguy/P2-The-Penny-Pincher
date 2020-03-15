@@ -28,7 +28,8 @@ Project is created with:
 To run this project, install it locally using npm:
 
 ```
-$ npm install
+$ npm install for local deployment.
+See deployed website.  Use account user: "example@example.com, password: "example" for a seeded example.
 ```
 
 
