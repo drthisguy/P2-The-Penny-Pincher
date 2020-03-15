@@ -52,7 +52,11 @@ Deployed Website: https://pennypincha.herokuapp.com
 ![image](https://user-images.githubusercontent.com/48693333/76694966-b0083980-664f-11ea-814d-b130e8346d26.png)
 
 ## Sources & Inspirations
-
+https://handlebarsjs.com/guide/expressions.html#basic-usage
+https://sequelize.org/master/manual/model-basics.html
+https://gist.github.com/PurpleBooth/109311bb0361f32d87a2#project-title
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/routes
+https://www.robinwieruch.de/webpack-babel-setup-tutorial
 
 ## Issues & Contact
 
