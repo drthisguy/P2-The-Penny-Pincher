@@ -51,6 +51,9 @@ Deployed Website: https://pennypincha.herokuapp.com
 
 ![image](https://user-images.githubusercontent.com/48693333/76694966-b0083980-664f-11ea-814d-b130e8346d26.png)
 
+
+![image](https://user-images.githubusercontent.com/48693333/76695105-805a3100-6651-11ea-9da6-49aec0d8b2ac.png)
+
 ## Sources & Inspirations
 https://handlebarsjs.com/guide/expressions.html#basic-usage
 https://sequelize.org/master/manual/model-basics.html
