@@ -40,15 +40,21 @@ $ npm install
 Github Repo: https://github.com/drthisguy/Project-2
 
 
-Deployed Website:
+Deployed Website: https://pennypincha.herokuapp.com
 
 
 
 
 ## Screen Grabs:
+![image](https://user-images.githubusercontent.com/48693333/76694961-8fd87a80-664f-11ea-8404-b6f521c5638a.png)
 
+
+![image](https://user-images.githubusercontent.com/48693333/76694966-b0083980-664f-11ea-814d-b130e8346d26.png)
 
 ## Sources & Inspirations
 
 
 ## Issues & Contact
+
+We Hoped to use the babel webpack to transpile front end ES6 to pre 2015 js.  Delayed for now. 
+No other know issues.
