@@ -3,21 +3,17 @@ var db = require("../models");
 var passport = require("../config/passport");
 
 module.exports = function(app) {
-  // Using the passport.authenticate middleware with our local strategy.
-  // If the user has valid login credentials, send them to the members page.
-  // Otherwise the user will be sent an error
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    // Sending back a password, even a hashed password, isn't a good idea
+  //use passport strategy to authenticate
+  app.post("/api/login", passport.authenticate("local"), (req, res) => {
+
     res.json({
       email: req.user.email,
       id: req.user.id
     });
   });
 
-  // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
-  // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
-  // otherwise send back an error
-  app.post("/api/signup", function(req, res) {
+  //signup route
+  app.post("/api/signup", (req, res) => {
     db.User.create({
       email: req.body.email,
       password: req.body.password
@@ -56,8 +52,7 @@ module.exports = function(app) {
         id: req.body.id
       }
     }).then( response => res.json(response))
-      // .catch(err => {res.status(501).json(err);});
-      .catch(err => console.log(err));
+      .catch(err => {res.status(501).json(err)});
   });
 
  // Route to remove an item 
@@ -73,15 +68,14 @@ module.exports = function(app) {
 });
 
   // Route for logging user out
-  app.get("/logout", function(req, res) {
+  app.get("/logout", (req, res) => {
 
     req.logout();
     res.redirect("/");
-    
   });
 
   // Route to get all items for a user
-  app.get("/api/expenses", function(req, res) {
+  app.get("/api/expenses", (req, res) => {
     db.Expense.findAll({
       where: {
         user_id: req.user.id
@@ -107,14 +101,12 @@ module.exports = function(app) {
 
 
 
-  // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", function(req, res) {
+  // user data route
+  app.get("/api/user_data", (req, res) => {
     if (!req.user) {
-      // The user is not logged in, send back an empty object
       res.json({});
+
     } else {
-      // Otherwise send back the user's email and id
-      // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
         id: req.user.id

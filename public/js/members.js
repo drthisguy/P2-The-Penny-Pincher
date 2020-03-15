@@ -4,7 +4,10 @@ $(document).ready(function() {
 
   
   //init datatables
-  $("#table").DataTable({ responsive: true });
+  $("#table").DataTable({ 
+    responsive: true,
+    "pageLength": 50
+  });
   
   //init materialize 
   M.AutoInit();
@@ -12,13 +15,14 @@ $(document).ready(function() {
   //hide edit state buttons
   ui.hideEditState();
   
-  //set global variable in event of a delete
+  //set global variable in case of a edit/delete
   let editId;
+
   
+  //reloader for delayed actions
   function reloader() {
     location.reload();
    }
-
 
 
    //mini module for DB opts
@@ -49,7 +53,7 @@ $(document).ready(function() {
     }
   })();
 
-  //draw donut chart for expenses
+  //draw donut chart for expenses & display summary
    (async function budgetLoader() {
       const budget = await ItemCtrl.getItems();
 
@@ -62,8 +66,8 @@ $(document).ready(function() {
   //set default category
   let catInput = $("#category-field");
   catInput.siblings("label").toggleClass("active", true );
-  catInput.blur();
   catInput.val('Miscellaneous');
+  catInput.blur();
 
   //listen for new category
   $('li>a.cat').on('click',  function() {
@@ -74,8 +78,8 @@ $(document).ready(function() {
   //set default priority
   let priorInput = $("#priority-field");
   priorInput.siblings("label").toggleClass("active", true );
-  priorInput.blur();
   priorInput.val('Medium');
+  priorInput.blur();
 
   //listen for new priority
   $('li>a.pri').on('click',  function() {
@@ -88,7 +92,7 @@ $(".edit").on("click",  async function()  {
 
   ui.startEditState();
 
-  //set data in global variable in case of delete event.
+  //set data in global variable in case of edit/delete event.
   editId = $(this).data();
  
    currentItem = await ItemCtrl.getItemById(editId.id);
@@ -148,14 +152,11 @@ e.preventDefault();
 // delete item in budget
 $("#delete-btn").on("click", async (e) => {
   e.preventDefault();
-  // const user = await ItemCtrl.getUser();
+
   itemId = editId
   
   ItemCtrl.deleteItem(itemId);
   setTimeout(() => reloader(), 650);
 });
-
-
-
 
 })

@@ -76,6 +76,8 @@ class UICtrl  {
     drawExpenseChart(items) {
       const dataPoints = [];
 
+      items = items.filter(x => x.category !== "Income");
+
       items.forEach( item => {
         let cost = parseFloat(item.amount),
 
@@ -107,18 +109,18 @@ class UICtrl  {
     paintBudget(budget) {
 
       //..lol
-      const income = budget.map(x => new Object({category: x.category, amount: x.amount})).filter(x => x.category === "Income").map(x => x.amount).reduce((a, b) => parseFloat(a) + parseFloat(b), 0),  
-       expenses = budget.map(x => new Object({category: x.category, amount: x.amount})).filter(x => x.category !== "Income").map(x => x.amount).reduce((a, b) => parseFloat(a) + parseFloat(b), 0),
+      const income = budget.map(x => new Object({category: x.category, amount: x.amount})).filter(x => x.category === "Income").map(x => x.amount).reduce((a, b) => parseFloat(a) + parseFloat(b), 0),
+       expenses = budget.map((x => x.amount)).reduce((a, b) => parseFloat(a) + parseFloat(b), 0) - income,
        discretion = budget.map(x => new Object({priority: x.priority, amount: x.amount})).filter(x => x.priority == "Low").map(x => x.amount).reduce((a, b) => parseFloat(a) + parseFloat(b), 0),
        balance = income - expenses,
        percentage = Math.round((discretion/expenses) * 100);
 
      
-       $(".income").append(income)
-       $(".expense").append(expenses)
-       $(".balance").append(balance)
-       $(".dis-amount").append(discretion)
-       $(".dis-percent").append(`${percentage}%`)
+       $(".income").append(income.toFixed(2));  
+       $(".expense").append(expenses.toFixed(2));
+       $(".balance").append(balance.toFixed(2));
+       $(".dis-amount").append(discretion.toFixed(2));
+       $(".dis-percent").append(`${percentage}%`);
 
     }
 

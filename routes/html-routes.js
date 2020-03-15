@@ -1,9 +1,7 @@
-// Requiring path to so we can use relative routes to our HTML files
-var path = require("path");
-var db = require("../models");
-var moment = require("moment");
-// Requiring our custom middleware for checking if a user is logged in
-var isAuthenticated = require("../config/middleware/isAuthenticated");
+const path = require("path");
+const db = require("../models");
+const moment = require("moment");
+const isAuthenticated = require("../config/middleware/isAuthenticated");
 
 //helper for reformatting timestamps
 function formatTimeStamps(data) {
@@ -17,8 +15,8 @@ function formatTimeStamps(data) {
 
 module.exports = function(app) {
 
-  app.get("/", function(req, res) {
-    // If the user already has an account send them to the members page
+  app.get("/", (req, res) => {
+    // redirect logged in users
     if (req.user) {
       res.redirect("/members");
     }
@@ -27,7 +25,7 @@ module.exports = function(app) {
 
   app.get("/login", function(req, res) {
     
-    // If the user already has an account send them to the members page
+    // redirect logged in users
     if (req.user) {
       res.redirect("/members");
     }
@@ -38,8 +36,7 @@ module.exports = function(app) {
         res.sendFile(path.join(__dirname, "../public/signup.html"));
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
+  //render handlebars for thet members page. Or isAuthenticated will redirect to the main page
   app.get("/members", isAuthenticated, function(req, res) {
     
     db.Expense.findAll({
@@ -47,7 +44,6 @@ module.exports = function(app) {
       where: {
         user_id: req.user.id
       } }).then( dbResponse => {      
-      console.log("expenses", dbResponse)
         
         dbResponse = formatTimeStamps(dbResponse);
 
