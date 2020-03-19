@@ -44,6 +44,9 @@ Github Repo: https://github.com/drthisguy/Project-2
 Deployed Website: https://pennypincha.herokuapp.com
 
 
+## Animated Action:
+![penny-pinch-optimize](https://user-images.githubusercontent.com/48693333/77022098-139bab00-695f-11ea-8b6a-36cfdb1dee34.gif)
+
 
 
 ## Screen Grabs:
